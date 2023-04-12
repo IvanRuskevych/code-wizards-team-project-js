@@ -1,0 +1,59 @@
+// RESET STYLES
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+    font-style: normal;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+// BASIC STYLES
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1600px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include mq(mob) {
+        width: 320px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    @include mq(tab) {
+        width: 768px;
+    }
+
+    @include mq(desk) {
+        width: 1280px;
+    }
+}
