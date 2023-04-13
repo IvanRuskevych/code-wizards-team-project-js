@@ -1,0 +1,80 @@
+.gallery {
+    &__list {
+      
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        @include mq(tab) {
+            gap: 32px;
+        }
+
+        @include mq(desk) {
+            flex: 1 1 1;
+            gap: 32px 16px;
+        }
+    }
+
+    &__item {
+        width: 395px;
+        transition: transform ease-in 250ms;
+
+        &:hover {
+            transform: scale(0.95);
+
+            &>img {
+                filter: grayscale(50%);
+            }
+        }
+
+        &-img {
+            width: 100%;
+            display: block;
+            height: auto;
+            border-radius: 5px;
+            transition: filter ease-in 250ms;
+        }
+
+        &-descr {
+            margin-top: 12px;
+            font-weight: 500;
+            font-size: 10px;
+
+            @include mq(desk) {
+                & span {
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+            }
+        }
+
+        &-name {
+            display: block;
+            text-transform: uppercase;
+            line-height: 14px;
+
+            color: #000;
+
+            @include mq(tab) {
+                line-height: 16px;
+            }
+        }
+
+        &-genres {
+            display: block;
+            line-height: 16px;
+
+            color: #B92F2C;
+        }
+
+        @include mq(tab) {
+            width: 336px;
+        }
+
+        @include mq(desk) {
+            width: 394px;
+        }
+
+    }
+
+}
