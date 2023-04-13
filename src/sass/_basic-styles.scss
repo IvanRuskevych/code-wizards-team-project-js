@@ -45,12 +45,12 @@ body {
 
     @include mq(mob) {
         width: 320px;
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+       }
 
     @include mq(tab) {
         width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
     }
 
     @include mq(desk) {
