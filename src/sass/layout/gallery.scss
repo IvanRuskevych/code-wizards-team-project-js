@@ -10,7 +10,7 @@
         }
 
         @include mq(desk) {
-            flex: 1 1 1;
+           
             gap: 32px 16px;
         }
     }
