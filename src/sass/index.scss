@@ -4,11 +4,12 @@
 
 @import './basic-styles';
 
-
 // LAYOUTs
 
 @import './layout/example'; //видалити або закоментувати
 
-
+@import './layout/gallery.scss';
 
 @import './layout/gallery.scss';
+
+@import './layout/header.scss';
