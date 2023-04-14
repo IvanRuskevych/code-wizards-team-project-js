@@ -2,6 +2,10 @@ import axios from 'axios';
 const API_KEY = '7c0c458e245909c66f3397c50f32766a'
 // axios.defaults.baseURL = `https://api.themoviedb.org/3/movie/550?api_key=7c0c458e245909c66f3397c50f32766a`;
 let pageState = 1;
+
+
+
+
 export const getAPITrend = async (page) => {
 	const { data } = await axios.get('https://api.themoviedb.org/3/trending/all/day?api_key=7c0c458e245909c66f3397c50f32766a', {
 		params: {
@@ -10,6 +14,8 @@ export const getAPITrend = async (page) => {
 	})
 	return await data;
 }
+
+renderTrendCollection(pageState);
 
 async function getAPIGenres(page) {
 	const {data} = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=7c0c458e245909c66f3397c50f32766a&')
@@ -31,11 +37,14 @@ async function getGenres(genre) {
 	// const { results } = dbFilms;
 	const genresArray = await getAPIGenres();
 	return genresArray.find(item => genre == item.id).name;
+	
+	
 }
 // getGenres(28).then(results=> console.log(results))
 // resetGallery(document.querySelector('.gallery__list'))
 
-async function renderList(parent, collection) {
+function renderList(parent, collection) {
+
 	const gallaryItem = collection.map(element => {
 		// console.log(getGenres(element.genre_ids[0]))
 		return `
@@ -55,9 +64,11 @@ async function renderList(parent, collection) {
 	parent.innerHTML = gallaryItem
 }
 
-window.addEventListener('DOMContentLoaded', async () => {
-	
-	const collectionTrend = await getAPITrend(pageState);
+async function renderTrendCollection(page) {
+	const galleryList = document.querySelector('.gallery__list')
+	resetGallery(galleryList)
+	const collectionTrend = await getAPITrend(page);
 	console.log(collectionTrend)
-	await renderList(document.querySelector('.gallery__list'), collectionTrend.results)
-});
+	await renderList(galleryList, collectionTrend.results)
+}
+
