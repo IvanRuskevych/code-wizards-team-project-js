@@ -14,7 +14,7 @@
   flex-direction: column;
 }
 
-.team__logo {
+.team__name {
   font-weight: 600;
   font-size: 30px;
   line-height: 1.16;
@@ -23,9 +23,13 @@
   padding: 5% 10%;
   border-radius: 6px;
     transition: color 0.2s ease-in-out;
+    background: radial-gradient(#B92F2C 1px, transparent 1px);
+      background-size: 3px 3px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
 }
 
-.team__logo:hover {
+.team__name:hover {
   color: #B92F2C;
 }
 
