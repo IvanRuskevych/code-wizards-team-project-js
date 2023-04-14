@@ -53,7 +53,11 @@
     }
 }
 
-
+ @mixin flexcenter($d: flex, $ai: center, $jc: center) {
+     display: $d;
+     align-items: $ai;
+     justify-content: $jc;
+ }
 // приклад використання
 
 // width: 100%;
