@@ -21,7 +21,7 @@ async function getAPIGenres(page) {
 // 	return genres;
 // })
 
-getAPITrend(pageState).then(data=> console.log(data))
+// getAPITrend(pageState).then(data=> console.log(data))
 function resetGallery(parent) {
 	parent.innerHTML = '';
 }
@@ -32,6 +32,32 @@ async function getGenres(genre) {
 	const genresArray = await getAPIGenres();
 	return genresArray.find(item => genre == item.id).name;
 }
-getGenres(28).then(results=> console.log(results))
-resetGallery(document.querySelector('.gallery__list'))
+// getGenres(28).then(results=> console.log(results))
+// resetGallery(document.querySelector('.gallery__list'))
 
+async function renderList(parent, collection) {
+	const gallaryItem = collection.map(element => {
+		// console.log(getGenres(element.genre_ids[0]))
+		return `
+		<li class="gallery__item" data-id="${element.id}">
+        <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" class="galler__item-img">
+        <p class="gallery__item-descr">
+          <span class="gallery__item-name">
+            ${element.title||element.name}
+          </span>
+          <span class="gallery__item-genres">
+            ${element.genre_ids} | ${(element.release_date || element.first_air_date).slice(0, 4) }
+          </span>
+        </p>
+      </li>
+		`
+	}).join('');
+	parent.innerHTML = gallaryItem
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+	
+	const collectionTrend = await getAPITrend(pageState);
+	console.log(collectionTrend)
+	await renderList(document.querySelector('.gallery__list'), collectionTrend.results)
+});
