@@ -159,9 +159,15 @@
   background-color: #000;
 }
 
+
 .form-wrap {
   margin-right: auto;
 }
+
+.form-wrap{
+  margin-right: auto;
+}
+
 .header__form {
   display: flex;
   width: 252px;
@@ -192,7 +198,12 @@ input {
 }
 
 .header__input {
+
   border-radius: 100px 0px 0px 100px;
+
+border-radius: 100px 0px 0px 100px;
+
+
   width: 100%;
   background-color: #ffffff;
   border: none;
@@ -216,7 +227,12 @@ input {
 }
 
 .header__submit-button {
+
   border-radius: 0px 100px 100px 0px;
+
+  border-radius:  0px 100px 100px 0px;
+
+
   background-color: #ffffff;
   border: none;
   outline: none;
