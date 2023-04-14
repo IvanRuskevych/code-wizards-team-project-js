@@ -40,7 +40,7 @@ async function renderList(parent, collection) {
 		// console.log(getGenres(element.genre_ids[0]))
 		return `
 		<li class="gallery__item" data-id="${element.id}">
-        <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" class="galler__item-img">
+        <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" class="gallery__item-img">
         <p class="gallery__item-descr">
           <span class="gallery__item-name">
             ${element.title||element.name}
