@@ -35,40 +35,60 @@
           />
         </li>
       </ul>
+    </div>
     </div> -->
 
 <header class="section-header">
   <div class="container">
-    <div class="header-wrap">
-      <nav class="header-nav">
-        <a href="./index.html" class="link--btn btn--current">Home</a>
-        <a href="#" class="link--btn">My Library</a>
-      </nav>
-      <div class="form-wrap">
-        <form class="header__form js-search-form" id="header__form">
-          <input
-            type="text"
-            placeholder="Movie search"
-            class="header__input"
-            name="query"
-          />
-          <button
-            type="submit"
-            class="header__submit-button btn js-search-button"
-            aria-label="search"
+    <div class="header">
+  
+    <!-- Первый слайд -->
+      <div class="header-wrap">
+        <nav class="header-nav header-nav-library">
+          <a href="./index.html" class="link--btn home-active-library btn"
+            >Home</a
           >
-            <svg class="header__icon" width="14" height="14">
-              <use a href="./images/symbol-defs.svg#icon-search"></use>"></use>
+          <a href="#" class="link--btn btn--current btn">My Library</a>
+        </nav>
+        <div class="form-wrap library-current">
+          <form
+            class="header__form js-search-form visually-hidden"
+            id="header__form"
+          >
+            <input
+              type="text"
+              placeholder="Movie search"
+              class="header__input"
+              name="query"
+            />
+            <button
+              type="submit"
+              class="header__submit-button js-search-button"
+              aria-label="search"
+            >
+              <svg class="header__icon" width="14" height="14">
+                <use a href="./images/symbol-defs.svg#icon-search"></use>
+              </svg>
+            </button>
+          </form>
+          <a href="./index.html" class="logo-link logo-link-library link">
+            <svg class="logo__icon" width="32" height="32">
+              <use href="./images/symbol-defs.svg#icon-film"></use>
             </svg>
-          </button>
-        </form>
-         <a href="./index.html" class="logo-link link">
-      <svg class="logo__icon" width="32" height="32">
-        <use href="./images/symbol-defs.svg#icon-film"></use>
-      </svg>
-      <span class="logo__title">Filmoteka</span>
-    </a>
-      </div>
+            <span class="logo__title">Filmoteka</span>
+          </a>
+          <div class="library-btn-box library-btn-hidden">
+            <button
+              class="library--btn library-current-btn btn js-library-btn"
+              type="button"
+            >
+              watched
+            </button>
+            <button class="library--btn btn js-library-btn" type="button">
+              queue
+            </button>
+          </div>
+       </div>
     </div>
   </div>
 </header>
