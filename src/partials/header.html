@@ -41,21 +41,21 @@
 <header class="section-header">
   <div class="container">
     <div class="header">
-  
-    <!-- Первый слайд -->
+      <!-- Первый слайд -->
       <div class="header-wrap">
         <nav class="header-nav header-nav-library">
-          <a href="./index.html" class="link--btn home-active-library btn"
+          <a
+            href="./index.html"
+            class="link--btn home-active-library btn"
+            id="home-button"
             >Home</a
           >
-          <a href="#" class="link--btn btn--current btn">My Library</a>
+          <a href="#" class="link--btn btn--current btn" id="library-button"
+            >My Library</a
+          >
         </nav>
         <div class="form-wrap library-current">
-          <form
-            class="header__form js-search-form visually-hidden"
-            id="header__form"
-          >
-
+          <form class="header__form js-search-form" id="header__form">
             <input
               type="text"
               placeholder="Movie search"
@@ -89,19 +89,18 @@
               queue
             </button>
           </div>
-       </div>
+        </div>
 
-            <svg class="header__icon" width="14" height="14">
-              <use a href="./images/symbol-defs.svg#icon-search"></use>
-            </svg>
-          </button>
-        </form>
-        <a href="./index.html" class="logo-link link">
+        <!-- <svg class="header__icon" width="14" height="14">
+          <use a href="./images/symbol-defs.svg#icon-search"></use>
+        </svg> -->
+
+        <!-- <a href="./index.html" class="logo-link link">
           <svg class="logo__icon" width="32" height="32">
             <use href="./images/symbol-defs.svg#icon-film"></use>
           </svg>
           <span class="logo__title">Filmoteka</span>
-        </a>
+        </a> -->
       </div>
     </div>
   </div>

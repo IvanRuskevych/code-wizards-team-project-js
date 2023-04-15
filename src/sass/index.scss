@@ -6,14 +6,19 @@
 
 // LAYOUTs
 
-@import './layout/example'; //видалити або закоментувати
+@import './layout/header';
 
 @import './layout/gallery.scss';
 
-@import './layout/header.scss';
+@import './layout/pagination';
+
+@import './layout/footer';
+
+@import './layout/team-modal';
+
+@import './layout/backdrop';
+
+@import './scroll';
 
 @import './spinner';
 
-@import './layout/pagination';
-
-@import './scroll';
