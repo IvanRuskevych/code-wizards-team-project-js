@@ -2,53 +2,40 @@ import axios from 'axios';
 const API_KEY = '7c0c458e245909c66f3397c50f32766a'
 // axios.defaults.baseURL = `https://api.themoviedb.org/3/movie/550?api_key=7c0c458e245909c66f3397c50f32766a`;
 let pageState = 1;
-
-
-
-
 export const getAPITrend = async (page) => {
-	const { data } = await axios.get('https://api.themoviedb.org/3/trending/all/day?api_key=7c0c458e245909c66f3397c50f32766a', {
-		params: {
-			page
-		}
-	})
-	return await data;
+    const { data } = await axios.get('https://api.themoviedb.org/3/trending/all/day?api_key=7c0c458e245909c66f3397c50f32766a', {
+        params: {
+            page
+        }
+    })
+    return await data;
 }
-
 renderTrendCollection(pageState);
-
 async function getAPIGenres(page) {
-	const {data} = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=7c0c458e245909c66f3397c50f32766a&')
-	return await data.genres;
+    const {data} = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=7c0c458e245909c66f3397c50f32766a&')
+    return await data.genres;
 }
-
 // getAPIGenres().then(result => {
-// 	const { genres } = result;
-// 	return genres;
+//  const { genres } = result;
+//  return genres;
 // })
-
 // getAPITrend(pageState).then(data=> console.log(data))
 function resetGallery(parent) {
-	parent.innerHTML = '';
+    parent.innerHTML = '';
 }
-
 async function getGenres(genre) {
-	// const dbFilms = await getAPITrend(pageState);
-	// const { results } = dbFilms;
-	const genresArray = await getAPIGenres();
-	return genresArray.find(item => genre == item.id).name;
-	
-	
+    // const dbFilms = await getAPITrend(pageState);
+    // const { results } = dbFilms;
+    const genresArray = await getAPIGenres();
+    return genresArray.find(item => genre == item.id).name;
 }
 // getGenres(28).then(results=> console.log(results))
 // resetGallery(document.querySelector('.gallery__list'))
-
-function renderList(parent, collection) {
-
-	const gallaryItem = collection.map(element => {
-		// console.log(getGenres(element.genre_ids[0]))
-		return `
-		<li class="gallery__item" data-id="${element.id}">
+export function renderList(parent, collection) {
+    const gallaryItem = collection.map(element => {
+        // console.log(getGenres(element.genre_ids[0]))
+        return `
+        <li class="gallery__item" data-id="${element.id}">
         <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" class="gallery__item-img">
         <p class="gallery__item-descr">
           <span class="gallery__item-name">
@@ -59,16 +46,14 @@ function renderList(parent, collection) {
           </span>
         </p>
       </li>
-		`
-	}).join('');
-	parent.innerHTML = gallaryItem
+        `
+    }).join('');
+    parent.innerHTML = gallaryItem
 }
-
-async function renderTrendCollection(page) {
-	const galleryList = document.querySelector('.gallery__list')
-	resetGallery(galleryList)
-	const collectionTrend = await getAPITrend(page);
-	console.log(collectionTrend)
-	await renderList(galleryList, collectionTrend.results)
+export async function renderTrendCollection(page) {
+    const galleryList = document.querySelector('.gallery__list')
+    resetGallery(galleryList)
+    const collectionTrend = await getAPITrend(page);
+    console.log(collectionTrend)
+    await renderList(galleryList, collectionTrend.results)
 }
-
