@@ -39,7 +39,7 @@ async function getGenres(genre) {
 	return genresArray.find(item => genre == item.id).name;
 }
 
-function renderList(parent, collection) {
+export function renderList(parent, collection) {
 	const gallaryItem = collection.map(element => {
 		return `
 		<li class="gallery__item" data-id="${element.id}">
