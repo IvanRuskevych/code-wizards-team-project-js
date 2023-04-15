@@ -23,17 +23,19 @@ async function getAPIGenres(page) {
 function resetGallery(parent) {
     parent.innerHTML = '';
 }
-async function getGenres(genre) {
+async function getGenres(genre, genresList) {
     // const dbFilms = await getAPITrend(pageState);
     // const { results } = dbFilms;
-    const genresArray = await getAPIGenres();
-    return genresArray.find(item => genre == item.id).name;
+    
+    return genresList.find(item => genre == item.id).name;
 }
-// getGenres(28).then(results=> console.log(results))
-// resetGallery(document.querySelector('.gallery__list'))
-export function renderList(parent, collection) {
+
+
+export function renderList(parent, collection, genreList) {
+	
     const gallaryItem = collection.map(element => {
-        // console.log(getGenres(element.genre_ids[0]))
+
+
         return `
         <li class="gallery__item" data-id="${element.id}">
         <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" class="gallery__item-img">
@@ -53,7 +55,7 @@ export function renderList(parent, collection) {
 export async function renderTrendCollection(page) {
     const galleryList = document.querySelector('.gallery__list')
     resetGallery(galleryList)
-    const collectionTrend = await getAPITrend(page);
-    console.log(collectionTrend)
-    await renderList(galleryList, collectionTrend.results)
+	const collectionTrend = await getAPITrend(page);
+	const genresArray = await getAPIGenres();
+	await renderList(galleryList, collectionTrend.results)
 }
