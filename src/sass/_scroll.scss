@@ -11,6 +11,7 @@
     justify-content: center;
     width: 60px;
     height: 30px;
+    transition: 0.3s;
 }
 
 .btn-up::before {
@@ -28,7 +29,7 @@
 
 @media (hover: hover) and (pointer: fine) {
     .btn-up:hover {
-        background-color: #5f0d02c9;
-        /* цвет заднего фона при наведении */
+        background-color: #b92f2c;
+        height: 50px;
     }
 }
