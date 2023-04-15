@@ -66,3 +66,7 @@ async function renderTrendCollection(page) {
 	await renderList(galleryList, collectionTrend.results)
 }
 
+
+
+// ======================================
+
