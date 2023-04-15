@@ -43,7 +43,7 @@ async function getGenres(genre) {
 // getGenres(28).then(results=> console.log(results))
 // resetGallery(document.querySelector('.gallery__list'))
 
-function renderList(parent, collection) {
+export function renderList(parent, collection) {
 
 	const gallaryItem = collection.map(element => {
 		// console.log(getGenres(element.genre_ids[0]))
@@ -64,7 +64,7 @@ function renderList(parent, collection) {
 	parent.innerHTML = gallaryItem
 }
 
-async function renderTrendCollection(page) {
+export async function renderTrendCollection(page) {
 	const galleryList = document.querySelector('.gallery__list')
 	resetGallery(galleryList)
 	const collectionTrend = await getAPITrend(page);
