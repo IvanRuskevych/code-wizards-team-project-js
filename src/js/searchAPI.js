@@ -3,6 +3,10 @@ import {renderList} from "./fetchAPITrends.js"
 import Notiflix from 'notiflix';
 // const API_KEY = 'f9f6d3f14431911aa9602e018f8e4b77' матвея ключ 7c0c458e245909c66f3397c50f32766a
 let pageState = 1;
+// Сообщщение первоначально не видно
+const messegeSearchFailed = document.querySelector('.notification');
+messegeSearchFailed.style.display = 'none';
+
 export const instance = axios.create({
 	baseURL:
 		'https://api.themoviedb.org/3/search/movie?api_key=f9f6d3f14431911aa9602e018f8e4b77&language=en-US&page=1&include_adult=false',
@@ -56,6 +60,7 @@ async function onSearchBarFormSubmit(event) {
 // Если результат не найден по ключевым словам выдаём сообщение ошибку
 		if (!arrayOfResults.length > 0) {
 			Notiflix.Notify.failure('Search result not successful. Enter the correct movie name.');
+			messegeSearchFailed.style.display = 'block';
 			// Меняем класс  <p> и делаем видемым
 			// elementP.style.display = 'block';
 			searchBarForm.reset();
@@ -83,7 +88,7 @@ async function onSearchBarFormSubmit(event) {
 	// 	document.querySelector('.gallery__list').innerHTML = gallaryItem
 		
 	// После нажатия submit скидываем форму
-	
+	messegeSearchFailed.style.display = 'none';
 	searchBarForm.reset();
     })
 }
