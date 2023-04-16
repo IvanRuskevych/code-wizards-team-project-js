@@ -1,108 +1,41 @@
-.header {
-  position: relative;
-}
-/* Слайдер */
-.slider {
-  max-width: 90%;
-  position: relative;
-  margin: auto;
-  height: 300px;
-}
-/* Картинка масштабируется по отношению к родительскому элементу */
-.slider .item img {
-  object-fit: cover;
-  width: 100%;
-  height: 300px;
-}
-/* Кнопки вперед и назад */
-.slider .previous,
-.slider .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-.slider .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-/* При наведении на кнопки добавляем фон кнопок */
-.slider .previous:hover,
-.slider .next:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-/* Анимация слайдов */
-.slider .item {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-// .swiper.background__slider {
-//   position: absolute;
-//   top: 0;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   width: 1280px;
-// }
-
-// .header__wrapper {
-//   position: absolute;
-//   top: 0;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   z-index: 1;
-// }
-
 .section-header {
   width: 100%;
   margin-top: 20px;
-
-  @include mq(tab) {
+  padding-bottom: 20px;
+}
+@include mq(tab) {
+  .section-header {
     margin-top: 32px;
   }
 }
-
 .header {
+  position: relative;
+  display: flex;
   height: 460px;
   padding: 14px;
-  margin-bottom: 20px;
   background-image: url('../images/mobile-red-popcorn@1x.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+
   @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url('../images/mobile-red-popcorn@2x.jpg');
   }
-  border-radius: 10px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
   @include mq(tab) {
-    flex-direction: row-reverse;
-    justify-content: flex-start;
     height: 222px;
-    padding: 16px 32px;
-    margin-bottom: 32px;
+    padding: 16px;
+    // margin-bottom: 32px;
     background-image: linear-gradient(
         273.67deg,
         rgba(0, 0, 0, 0.49) -2.09%,
         rgba(0, 0, 0, 0) 99.83%
       ),
       url('../images/tablet-red-popcorn@1x.jpg');
+    border-radius: 15px;
   }
   @include mq(desk) {
     height: 316px;
@@ -114,204 +47,189 @@
       url('../images/red-popcorn-swiper@1x.jpg');
   }
 }
-.header-wrap {
-  // display: flex;
-  flex-direction: column;
-}
 
+.header-wrap {
+  width: 100%;
+}
+.header-desk {
+  @include mq(tab) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+  }
+}
 .header-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  // margin-bottom: 8px;
 }
-// .header-nav-library {
-
-//   // margin-bottom: 105px;
-// }
 .btn {
-  &:hover,
-  &:focus-within {
-    transform: scale(1.1);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-.link--btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
-  padding: 10px 26px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500px;
   font-size: 12px;
   text-transform: uppercase;
   line-height: 1.16;
+  height: 34px;
+  padding: 10px 22px;
+  border-radius: 100px;
+  cursor: pointer;
   color: #000;
   background-color: #fff;
-  border-radius: 100px;
+  border: none;
+  @include mq(tab) {
+    padding: 13px 24px;
+  }
+
+  &--current {
+    color: #fff;
+    background-color: #000;
+  }
+  &--link {
+    @include mq(tab) {
+      padding: 12px 24px;
+    }
+  }
 }
-
-.btn--current {
-  color: #fff;
-  background-color: #000;
-}
-
-
 .form-wrap {
   margin-right: auto;
 }
 
-.form-wrap{
-  margin-right: auto;
-}
-
 .header__form {
   display: flex;
   width: 252px;
   height: 34px;
-  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 100px;
-  margin-bottom: 312px;
+  // margin-bottom: 312px;
   margin-top: 8px;
   justify-content: center;
+
   @include mq(tab) {
-    margin-bottom: 105px;
+    width: 165px;
+    height: 38px;
   }
-}
-input {
-  border: none;
+  @include mq(desk) {
+    width: 187px;
+    height: 42px;
+  }
 }
 
 .header__form {
   display: flex;
-  width: 252px;
-}
-
-.visually-hidden {
-  display: none;
-  // visibility: hidden;
-  //  width: 0px;
-  margin-bottom: 0px;
+  position: relative;
 }
 
 .header__input {
-
-  border-radius: 100px 0px 0px 100px;
-
-border-radius: 100px 0px 0px 100px;
-
-
+  border-radius: 100px;
   width: 100%;
-  background-color: #ffffff;
-  border: none;
+  padding-top: 10px;
+  padding-left: 14px;
+  padding-bottom: 10px;
+  padding-right: 35px;
+  height: 34px;
+  background: #ffffff;
   font-family: 'Roboto';
-  font-size: 12px;
   font-weight: 400;
+  font-size: 12px;
   line-height: 1.16;
   color: #000;
   outline: none;
+  border: none;
+  &:hover,
+  &:focus-within {
+    transform: scale(1.1);
+    border-bottom: 3px solid #000;
+  }
 
   &::placeholder {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 400px;
-    font-size: 12px;
-    line-height: 1.16;
     color: #000;
-    padding-top: 10px;
-    padding-left: 14px;
+  }
+  @include mq(tab) {
+    height: 38px;
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 16px;
   }
 }
 
 .header__submit-button {
-
-  border-radius: 0px 100px 100px 0px;
-
-  border-radius:  0px 100px 100px 0px;
-
-
-  background-color: #ffffff;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   border: none;
-  outline: none;
-}
-.header__icon {
-  margin-right: 10px;
+  background-color: #fff;
+  padding: 0;
 }
 
-.header__text {
-  display: none;
+.notification {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 400px;
+  line-height: 1.17;
+  margin-top: 8px;
+  width: 155px;
+  @include mq(tab) {
+    width: 135px;
+    padding-left: 32px;
+  }
 }
-.logo-link {
+
+.logo--box {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   padding: 0px;
   gap: 8px;
   color: #ffffff;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
   font-size: 32px;
   line-height: 1.17;
-  &:hover,
-  &:focus-within {
-    transform: scale(1.1);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 312px;
+
+  @include mq(tab) {
+    justify-content: flex-start;
+    margin-top: 105px;
+    height: 47px;
+    @include mq(desk) {
+      margin-top: 151px;
+      align-items: center;
+      height: 75px;
+    }
   }
 }
-.logo-link-library {
-  margin: 300px 45px 16px 45px;
-  // margin-top: 300px;
-  // margin-bottom: 16px;
-  justify-content: center;
-  align-content: center;
+.logo__icon {
+  width: 32px;
+  height: 32px;
+  stroke: #fff;
   @include mq(tab) {
-    margin: 0px;
-    position: absolute;
-    bottom: 10px;
-    right: 70%;
+    width: 40px;
+    height: 40px;
   }
   @include mq(desk) {
-    bottom: 20px;
-    right: 82%;
+    width: 59px;
+    height: 59px;
   }
 }
-.library-btn-box {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 24px;
-  justify-content: center;
-  @include mq(tab) {
-    position: absolute;
-    top: 17px;
-    right: 32px;
-  }
-}
-.library--btn {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
-  padding: 10px 22px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500px;
-  font-size: 12px;
-  text-transform: uppercase;
-  line-height: 1.16;
-  color: #b92f2c;
-  background-color: #fff;
-  border-radius: 100px;
-  border: none;
-}
-.library-current-btn {
-  background-color: #b92f2c;
+.logo__title {
   color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.18;
+  @include mq(tab) {
+    font-size: 40px;
+  }
+  @include mq(desk) {
+    font-size: 64px;
+    height: 59px;
+  }
 }
-// .library-btn-hidden {
-//   display: none;
-// }
+
+.library-btn-hidden {
+  display: none;
+}
