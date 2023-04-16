@@ -69,20 +69,14 @@ async function openModal(item) {
     );
   }
 
-  // --------------library #######################################
+  // --------------library
   const btnModalWatched = document.querySelector(
     'button[data-status="watched"]'
   );
   const btnModalQueue = document.querySelector('button[data-status="queue"]');
-  // console.log(btnModalWatched);
-  // console.log(btnModalQueue);
-
-  // initial set library to localstorage
 
   btnModalWatched.addEventListener('click', statusChecked);
   btnModalQueue.addEventListener('click', statusChecked);
-
-  // ########################################################################
 }
 
 function renderBackdrop(el) {
