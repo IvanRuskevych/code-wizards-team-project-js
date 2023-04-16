@@ -1,4 +1,4 @@
-const btnUp = {
+export const btnUp = {
     el: document.querySelector('.btn-up'),
     show() {
 
