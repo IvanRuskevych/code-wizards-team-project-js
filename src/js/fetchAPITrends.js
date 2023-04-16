@@ -39,10 +39,22 @@ export function renderList(parent, collection) {
         </p>
       </li>
         `
-		}
-	}).join('');
+	}).join('') + `<li class="gallery__item-banner" >
+        <img  alt="" class="gallery__item-img-banner">
+        <p class="gallery__item-descr-banner">
+          <span class="gallery__item-name-banner">
+            Project | Students by GOit
+          </span>
+          <span class="gallery__item-genres-banner">
+            Code Wizards | 2003
+          </span>
+		</p>
+      </li>` ;
+
 	parent.innerHTML = gallaryItem
 }
+
+
 export async function renderTrendCollection(page) {
 	const galleryList = document.querySelector('.gallery__list')
 	resetGallery(galleryList)
