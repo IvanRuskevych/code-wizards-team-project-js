@@ -1,44 +1,45 @@
-// .btn--current {
-//   color: #fff;
-//   background-color: #000;
-// }
+.btn--current {
+  color: #fff;
+  background-color: #000;
+}
 
-// .form-wrap.visually-hidden {
-//   display: none;
-//   margin-bottom: 0px;
-// }
-// .library-btn-visual {
-//   display: flex;
-//   justify-content: center;
-//   gap: 4px;
-//   margin-top: 16px;
-//   @include mq(tab) {
-//     margin-top: 0px;
-//     position: absolute;
-//     bottom: 170px;
-//     left: 71%;
-//   }
-//   @include mq(desk) {
-//     bottom: 265px;
-//     left: 83%;
-//   }
-// }
-// .library--btn {
-//   padding: 10px 23px;
-// }
-// .library-current-btn {
-//   color: #fff;
-//   background-color: #b92f2c;
-// }
+.form-wrap.visually-hidden {
+  display: none;
+  margin-bottom: 0px;
+}
+.library-btn-visual {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 16px;
+  @include mq(tab) {
+    margin-top: 0px;
+    position: absolute;
+    bottom: 170px;
+    left: 71%;
+  }
+  @include mq(desk) {
+    bottom: 265px;
+    left: 83%;
+  }
+}
+.library--btn {
+  padding: 10px 23px;
+}
 
-// .library-btn {
-//   color: #b92f2c;
-//   background-color: #fff;
-// }
+.library-current-btn {
+  color: #fff;
+  background-color: #b92f2c;
+}
 
-// .header-desk-library {
-//   @include mq(tab) {
-//     display: flex;
-//     flex-direction: row;
-//   }
-// }
+.library-btn {
+  color: #b92f2c;
+  background-color: #fff;
+}
+
+.header-desk-library {
+  @include mq(tab) {
+    display: flex;
+    flex-direction: row;
+  }
+}
