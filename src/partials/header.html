@@ -1,62 +1,100 @@
 <header class="section-header">
-  <div class="container">
+  <div class="container header-container">
+    <!-- <div class="swiper background__slider">
+      <ul class="swiper-wrapper list">
+        <li class="swiper-slide background__item">
+          <img
+            class="background__picture"
+            srcset="
+              ./images/yellow-popcorn-swiper@1x.jpg 1x,
+              ./images/yellow-popcorn-swiper@2x.jpg 2x
+            "
+            src="./images/yellow-popcorn-swiper@1x.jpg"
+            alt="yellow-popcorn"
+          />
+        </li>
+        <li class="swiper-slide background__item">
+          <img
+            class="background__picture"
+            srcset="./images/orange-plane.jpg 1x"
+            src="./images/orange-plane.jpg"
+            alt="orange-popcorn"
+          />
+        </li>
+        <li class="swiper-slide background__item">
+          <img
+            class="background__picture"
+            srcset="
+              ./images/red-popcorn-swiper@1x.jpg 1x,
+              ./images/red-popcorn-swiper@2x.jpg 2x
+            "
+            src="./images/red-popcorn-swiper@1x.jpg"
+            alt="red-popcorn"
+          />
+        </li>
+      </ul>
+    </div> -->
     <div class="header">
       <div class="header-wrap">
         <div class="header-desk header-desk-library">
           <nav class="header-nav header-nav-library">
-          <a
-            href="./index.html"
-            class="btn--link btn--current btn"
-            id="home-button"
-            >Home</a
-          >
-          <a href="#" class="btn--link btn" id="library-button"
-            >My Library</a
-          >
-        </nav>
-        <div class="form-wrap  visually-hidden">
-          <form
-            class="header__form js-search-form "
-            id="header__form"
-          >
-            <input
-              type="text"
-              placeholder="Movie search"
-              class="header__input"
-              name="query"
-            />
-            <button
-              type="submit"
-              class="header__submit-button js-search-button"
-              aria-label="search"
+            <a
+              href="./index.html"
+              class="btn--link btn--current btn"
+              id="home-button"
+              >Home</a
             >
-              <svg class="header__icon" width="14" height="14">
-                <use href="./images/symbol-defs.svg#icon-search"></use>
-              </svg>
-            </button>
-          </form>
+            <a href="#" class="btn--link btn" id="library-button">My Library</a>
+          </nav>
+          <div class="form-wrap visually-hidden">
+            <form class="header__form js-search-form" id="header__form">
+              <input
+                type="text"
+                placeholder="Movie search"
+                class="header__input"
+                name="query"
+              />
+              <button
+                type="submit"
+                class="header__submit-button js-search-button"
+                aria-label="search"
+              >
+                <svg class="header__icon" width="14" height="14">
+                  <use href="./images/symbol-defs.svg#icon-search"></use>
+                </svg>
+              </button>
+              <p class="notification">
+                Search result not successful. Enter the correct movie name.
+              </p>
+            </form>
+          </div>
         </div>
-      </div>
-        
-         <div class="logo--box">
-          <span class="logo--icon"><svg class="logo__icon">
-              <use href="./images/symbol-defs.svg#icon-film"></use>
-            </svg>
-          </span>
+
+        <div class="logo--box">
+          <a href="./" class="logo--link">
+            <span class="logo--icon"
+              ><svg class="logo__icon">
+                <use href="./images/symbol-defs.svg#icon-film"></use>
+              </svg>
+            </span>
             <span class="logo__title">Filmoteka</span>
           </a>
         </div>
         <div class="library-btn-box library-btn-hidden library-btn-visual">
-            <button
-              class="library--btn library-current-btn btn js-library-btn"
-              type="button"
-            >watched
-            </button>
-            <button class="library--btn btn js-library-btn" type="button">
-              queue
-            </button>
-          </div>
+          <button
+            class="btn--watched library--btn library-current-btn btn js-library-btn"
+            type="button"
+          >
+            watched
+          </button>
+          <button
+            class="btn--quque library--btn btn js-library-btn"
+            type="button"
+          >
+            queue
+          </button>
         </div>
+      </div>
     </div>
   </div>
 </header>
