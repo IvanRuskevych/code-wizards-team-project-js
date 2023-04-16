@@ -9,7 +9,8 @@ console.log(btnWatchedRef);
 const btnQueueRef = document.querySelector(
   'button[data-status_library="queue"]'
 );
-console.log(btnQueueRef);
+const btnHomeRef = document.querySelector('[data-status_library="home"]');
+// console.log(btnHomeRef);
 btnMyLibraryRef.addEventListener('click', onBtnLibraryClick);
 btnWatchedRef.addEventListener('click', onBtnLibraryClick);
 btnQueueRef.addEventListener('click', onBtnLibraryClick);
@@ -22,6 +23,11 @@ function getLibrary() {
 }
 
 function onBtnLibraryClick(e) {
+  if (e.target.dataset.status_library === 'library') {
+    btnWatchedRef.classList.remove('visually-hidden');
+    btnQueueRef.classList.remove('visually-hidden');
+  }
+
   let status = e.target.dataset.status_library;
   console.log(status);
   const galleryList = document.querySelector('.gallery__list');
@@ -72,3 +78,42 @@ function renderLibrary(parent, collection, status) {
     .join('');
   return (parent.innerHTML = gallaryItem);
 }
+
+// ------------
+
+function changeStyleOnButtonsLibrary(e) {
+  if (e.target.dataset.status_library === 'watched') {
+    if (e.target.classList.contains('library-current-btn')) {
+      return;
+    } else {
+      btnWatchedRef.classList.add('library-current-btn');
+      btnQueueRef.classList.remove('library-current-btn');
+      return;
+    }
+  }
+  btnWatchedRef.classList.remove('library-current-btn');
+  btnQueueRef.classList.add('library-current-btn');
+  return;
+}
+
+btnWatchedRef.addEventListener('click', changeStyleOnButtonsLibrary);
+btnQueueRef.addEventListener('click', changeStyleOnButtonsLibrary);
+
+// ##################################################
+function changeStyleOnBtnHomeLibrary(e) {
+  if (e.target.dataset.status_library === 'library') {
+    if (e.target.classList.contains('btn--current')) {
+      return;
+    } else {
+      btnMyLibraryRef.classList.add('btn--current');
+      btnHomeRef.classList.remove('btn--current');
+      return;
+    }
+  }
+  btnMyLibraryRef.classList.remove('btn--current');
+  btnHomeRef.classList.add('btn--current');
+  return;
+}
+
+btnMyLibraryRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
+btnHomeRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
