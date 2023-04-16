@@ -23,7 +23,10 @@ export function renderList(parent, collection) {
 
 	const gallaryItem = collection.map(element => {
 		const genre = genresGalleryFormat(element.genre_ids);
-		return `
+		if (!(element.release_date || element.first_air_date) || !element.poster_path || !(element.title || element.name)) {
+			return;
+		} else {
+			return `
         <li class="gallery__item" data-id="${element.id}">
         <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" class="gallery__item-img">
         <p class="gallery__item-descr">
@@ -47,6 +50,7 @@ export function renderList(parent, collection) {
           </span>
 		</p>
       </li>` ;
+
 	parent.innerHTML = gallaryItem
 }
 
