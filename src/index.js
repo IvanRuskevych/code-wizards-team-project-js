@@ -12,4 +12,3 @@ import './js/swiper';
 
 import './js/pagination';
 
-import './js/library-get';
