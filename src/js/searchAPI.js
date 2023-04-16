@@ -10,11 +10,12 @@ messegeSearchFailed.style.display = 'none';
 export const instance = axios.create({
 	baseURL:
 		'https://api.themoviedb.org/3/search/movie?api_key=f9f6d3f14431911aa9602e018f8e4b77&language=en-US&page=1&include_adult=false',
-});
+
+	});
 
 
-async function getMoviesByName(name) {
-	return await instance.get(`&query=${ name }`);
+async function getMoviesByName(name, page) {
+	return await instance.get(`&query=${ name }&page=${ page }`);
 }
 
 
@@ -52,7 +53,7 @@ async function onSearchBarFormSubmit(event) {
 	// console.log(onSearchBarInput);
 	// Обьект получаем
 
-	getMoviesByName(onSearchBarInput).then(({ data }) => {
+	getMoviesByName(onSearchBarInput, pageState).then(({ data }) => {
 
 		// записываем результат данных с сервера в переменную
 		const arrayOfResults = data.results;
