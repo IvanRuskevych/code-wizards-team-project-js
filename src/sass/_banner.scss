@@ -53,12 +53,12 @@
 
     @media (min-width: 768px) {
         width: 704px;
-        background-image: url(../images/banner/desctopbaner1x.webp);
+        background-image: url(../images/banner/tablet1x.webp);
 
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            background-image: url(../images/banner/desctopbaner2x.webp);
+            background-image: url(../images/banner/tablet2x.webp);
         }
 
     }
