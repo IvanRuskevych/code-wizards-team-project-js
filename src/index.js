@@ -8,5 +8,6 @@ import './js/searchAPI';
 
 import './js/modal';
 
+import './js/swiper';
 
 
