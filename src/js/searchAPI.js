@@ -116,8 +116,8 @@ async function onSearchBarFormSubmit(event) {
 // })
 
 // Функция добавления сообщения если не через
-function sendMessage () {
+// function sendMessage () {
 
 	
-	headerFormInput.parentElement.insertAdjacentHTML ("beforeend", `<p class="header-form__error">Форма не отправлена</p>`)
-  }
+// 	headerFormInput.parentElement.insertAdjacentHTML ("beforeend", `<p class="header-form__error">Форма не отправлена</p>`)
+//   }
