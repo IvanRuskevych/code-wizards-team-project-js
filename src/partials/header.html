@@ -44,7 +44,13 @@
               id="home-button"
               >Home</a
             >
-            <a href="#" class="btn--link btn" id="library-button">My Library</a>
+            <a
+              href="#"
+              class="btn--link btn"
+              id="library-button"
+              data-status_library="library"
+              >My Library</a
+            >
           </nav>
           <div class="form-wrap visually-hidden">
             <form class="header__form js-search-form" id="header__form">
@@ -84,12 +90,14 @@
           <button
             class="btn--watched library--btn library-current-btn btn js-library-btn"
             type="button"
+            data-status_library="watched"
           >
             watched
           </button>
           <button
             class="btn--quque library--btn btn js-library-btn"
             type="button"
+            data-status_library="queue"
           >
             queue
           </button>

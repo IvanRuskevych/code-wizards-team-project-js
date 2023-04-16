@@ -1,22 +1,25 @@
 import axios from 'axios';
+
+import { statusChecked } from './library-set';
+
 const API_KEY = '7c0c458e245909c66f3397c50f32766a';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const ID_URL = `${BASE_URL}/movie/`;
 
 async function fetchFilmById(id) {
-    const movie_id = id;
-    const searchParams = new URLSearchParams({
-      api_key: API_KEY,
-    });
-    return axios.get(`${ID_URL}${movie_id}?${searchParams}`);
-  }
+  const movie_id = id;
+  const searchParams = new URLSearchParams({
+    api_key: API_KEY,
+  });
+  return axios.get(`${ID_URL}${movie_id}?${searchParams}`);
+}
 
-  async function fetchFilmTrailer(id) {
-    const searchParams = new URLSearchParams({
-      api_key: API_KEY,
-    });
-    return axios.get(`${ID_URL}/${id}/videos?${searchParams}`);
-  }
+async function fetchFilmTrailer(id) {
+  const searchParams = new URLSearchParams({
+    api_key: API_KEY,
+  });
+  return axios.get(`${ID_URL}/${id}/videos?${searchParams}`);
+}
 
 import sprite from '../images/sprite.svg';
 const galleryList = document.querySelector('.gallery__list');
@@ -28,8 +31,8 @@ modal.addEventListener('keydown', closeModal);
 modal.addEventListener('click', closeModalbyClick);
 closeModalBtn.addEventListener('click', closeModal);
 
-async function openModal (item) {
-    item.preventDefault();
+async function openModal(item) {
+  item.preventDefault();
   if (item.target.nodeName !== 'IMG') {
     return;
   }
@@ -37,35 +40,49 @@ async function openModal (item) {
   document.body.style.overflow = 'hidden';
   document.addEventListener('keydown', closeModal);
 
-const li = item.target.closest('.gallery__item');
-const id = li.getAttribute('data-id');
-const response = await fetchFilmById(id).then(r => {
-console.log(r)
+  const li = item.target.closest('.gallery__item');
+  const id = li.getAttribute('data-id');
+  const response = await fetchFilmById(id).then(r => {
+    console.log(r);
     return r.data;
-});
+  });
 
+  renderBackdrop(response);
+  modalWrap.insertAdjacentHTML('afterBegin', renderMarkupModal(response));
 
-renderBackdrop(response);
-modalWrap.insertAdjacentHTML('afterBegin', renderMarkupModal(response));
+  const btnTreil = document.querySelector('.modal-btn-trailer');
+  const wrapIMG = document.querySelector('.modal-img-wrap');
+  btnTreil.addEventListener('click', onClickWatch);
 
-const btnTreil = document.querySelector('.modal-btn-trailer');
-const wrapIMG = document.querySelector('.modal-img-wrap');
-btnTreil.addEventListener('click', onClickWatch);
+  async function onClickWatch() {
+    const li = item.target.closest('.gallery__item');
+    const id = li.getAttribute('data-id');
+    const response = await fetchFilmTrailer(id).then(r => {
+      return r.data;
+    });
+    const officialTrail = response.results.length - 1;
+    wrapIMG.remove();
+    btnTreil.style.display = 'none';
+    modalWrap.insertAdjacentHTML(
+      'afterBegin',
+      renderTrail(response.results[officialTrail])
+    );
+  }
 
-async function onClickWatch() {
-const li = item.target.closest('.gallery__item');
-const id = li.getAttribute('data-id');
-const response = await fetchFilmTrailer(id).then(r => {
-return r.data;
-});
-const officialTrail = response.results.length - 1;
-wrapIMG.remove();
-btnTreil.style.display = 'none';
-modalWrap.insertAdjacentHTML(
-'afterBegin',
-renderTrail(response.results[officialTrail])
-);
-}
+  // --------------library #######################################
+  const btnModalWatched = document.querySelector(
+    'button[data-status="watched"]'
+  );
+  const btnModalQueue = document.querySelector('button[data-status="queue"]');
+  // console.log(btnModalWatched);
+  // console.log(btnModalQueue);
+
+  // initial set library to localstorage
+
+  btnModalWatched.addEventListener('click', statusChecked);
+  btnModalQueue.addEventListener('click', statusChecked);
+
+  // ########################################################################
 }
 
 function renderBackdrop(el) {
@@ -77,7 +94,7 @@ function renderBackdrop(el) {
 }
 
 function renderMarkupModal(el) {
-return `<div class="modal-img-wrap">
+  return `<div class="modal-img-wrap">
           <div class="modal-wrap-img-btn"><img src="https://image.tmdb.org/t/p/w500/${
             el.poster_path
           }" alt="${el.title}" class="modal-image" width="500" height="750"/>
@@ -90,17 +107,15 @@ return `<div class="modal-img-wrap">
           <li class="modal-info-item">
             <p class="modal-info-name-value">Vote / Votes</p>
             <p class="modal-info-value"><span class="modal-info-value-vote">${el.vote_average.toFixed(
-                1
-              )}</span>/<span
+              1
+            )}</span>/<span
                 class="modal-info-value-votes"
                 >${el.vote_count}</span
               ></p>
           </li>
           <li class="modal-info-item">
             <p class="modal-info-name-value">Popularity</p>
-            <p class="modal-info-value">${el.popularity.toFixed(
-                1
-              )}</p>
+            <p class="modal-info-value">${el.popularity.toFixed(1)}</p>
           </li>
           <li class="modal-info-item">
             <p class="modal-info-name-value">Original Title</p>
@@ -118,25 +133,30 @@ return `<div class="modal-img-wrap">
           ${el.overview}
         </p>
         <div class="btn-modal-wrap">
-		  <div class="modal-btn-wrap">
-          <button type="button" class="modal-btn" data-watched="${el.id}">
-            Add to watched
+		      <div class="modal-btn-wrap">
+          <button type="button" class="modal-btn" data-id="${el.id}"
+
+          data-release_date="${(el.release_date || el.first_air_date).slice(
+            0,
+            4
+          )}"
+          data-status="watched"
+
+          >Add to watched
           </button>
-			 <button type="button" class="modal-btn modal-btn-rem" data-watched-rem="${
-                el.id
-       }">
-		 Remove from watched
-          </button>
+			 
 			 </div>
 			 <div class="modal-btn-wrap">
-          <button type="button" class="modal-btn" data-queue="${el.id}">
-            Add to queue
-          </button>
-			 <button type="button" class="modal-btn modal-btn-rem" data-queue-rem="${
-                el.id
-       }">
-		 Remove from queue
-          </button>
+        <button type="button" class="modal-btn" data-id="${el.id}"
+
+         data-release_date="${(el.release_date || el.first_air_date).slice(
+           0,
+           4
+         )}" 
+        data-status="queue"
+
+        >Add to queue
+          
 			 </div>
         </div>
       </div>`;
