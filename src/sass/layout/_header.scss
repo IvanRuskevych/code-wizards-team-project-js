@@ -106,9 +106,7 @@
     }
   }
 }
-.form-wrap {
-  margin-right: auto;
-}
+
 
 .header__form {
   display: flex;
@@ -177,7 +175,8 @@
 .notification {
   position: absolute;
   top: 50px;
-  right: 50%;
+  left: 0;
+  // right: 50%;
   color: #fff;
   font-size: 10px;
   font-weight: 400px;
@@ -185,8 +184,7 @@
   margin-top: 8px;
   width: 155px;
   @include mq(tab) {
-    width: 135px;
-    padding-left: 32px;
+    left: 15px;
   }
 }
 

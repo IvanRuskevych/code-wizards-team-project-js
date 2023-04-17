@@ -176,10 +176,6 @@ body {
   }
 }
 
-.form-wrap {
-  margin-right: auto;
-}
-
 .header__form {
   display: flex;
   border-radius: 100px;
@@ -252,7 +248,7 @@ body {
 .notification {
   position: absolute;
   top: 50px;
-  right: 50%;
+  left: 0;
   color: #fff;
   font-size: 10px;
   font-weight: 400px;
@@ -262,8 +258,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .notification {
-    width: 135px;
-    padding-left: 32px;
+    left: 15px;
   }
 }
 
