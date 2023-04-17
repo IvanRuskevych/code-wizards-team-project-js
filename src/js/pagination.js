@@ -1,4 +1,3 @@
-
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import * as fetchAPITrends from './fetchAPITrends';
@@ -11,11 +10,7 @@ import { getAPITrend } from './fetchAPITrends';
 import { btnUp } from './scroll';
 import { renderTrendCollection } from './fetchAPITrends';
 
-
-
-
 const refs = {
-
   gallery: document.querySelector('.gallery-js'),
   pagination: document.querySelector('#pagination'),
   loader: document.querySelector('.loader'),
@@ -23,7 +18,7 @@ const refs = {
 
 const TUI_VISIBLE_PAGES = 5;
 
-function createPagination(totalItems, visiblePages) {
+export function createPagination(totalItems, visiblePages) {
   const options = {
     itemsPerPage: 20,
     totalItems: totalItems,
@@ -51,7 +46,6 @@ function showHideLoader(element) {
   }
 }
 // =======================================================================================================
-
 
 const galleryFilms = document.querySelector('.gallery-js');
 showHideLoader(refs.loader);
