@@ -2,16 +2,14 @@
   padding: 29px 0;
 
   color: #545454;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
 
   @media screen and (max-width: 767px) {
     padding-top: 28px;
-
   }
 
   @media screen and (min-width: 768px) and (max-width: 1280px) {
     padding-top: 30px;
-
   }
 }
 
@@ -20,12 +18,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 .footer__text {
   display: flex;
-  font-size: 16px;
+  font-size: 14px;
 
   @media screen and (min-width: 320px) {
     &:not(:last-child) {
@@ -39,13 +36,19 @@
     }
   }
 
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.footer span,
+a {
   @media screen and (max-width: 767px) {
     font-size: 14px;
   }
 }
-
 .footer__icon {
-  color: #B92F2C;
+  color: #b92f2c;
 }
 
 .fa-solid {
@@ -93,15 +96,14 @@
 
   &:hover,
   &:focus {
-    color: #B92F2C;
+    color: #b92f2c;
   }
-
 }
 
-.footer__text--begin {
+.footer__text--go {
   color: #000000;
 }
 
-.footer__text--end {
-  color: #B92F2C;
+.footer__text--it {
+  color: #b92f2c;
 }

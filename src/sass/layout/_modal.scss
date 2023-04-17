@@ -1,0 +1,308 @@
+.backdrop-film {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 250ms linear, visibility 250ms linear;
+  
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .backdrop-film.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    & .modal-window {
+      transform: translate(-50%, -50%) scale(0);
+    }
+  }
+  .modal-window {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 48px;
+    padding-bottom: 40px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    border-radius: 15px;
+  
+    width: 280px;
+    min-height: 940px;
+    @include mq(tab) {
+      padding-top: 40px;
+      padding-left: 36px;
+      padding-right: 72px;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      width: 704px;
+      min-height: 552px;
+    }
+    @include mq(desk) {
+      padding-left: 12px;
+      padding-right: 12px;
+      width: 806px;
+      min-height: 558px;
+    }
+    background-color: #FFFFFF;
+    transition: transform 250ms linear;
+    &-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 30px;
+      height: 30px;
+      background-color: inherit;
+      cursor: pointer;
+    }
+
+  }
+  .icon-close {
+    width: 30px;
+    height: 30px;
+    fill: #000000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: fill 250ms linear;
+    .modal-window-close:hover &,
+    .modal-window-close:focus & {
+      fill: #B92F2C;
+    }
+  }
+  .modal-window-close{
+    border: none;
+  }
+  .modal-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    @include mq(tab) {
+      flex-wrap: nowrap;
+      column-gap: 68px;
+    }
+    @include mq(desk) {
+      flex-wrap: nowrap;
+      column-gap: 16px;
+    }
+  }
+  .modal-img-wrap {
+    position: relative;
+    margin-bottom: 20px;
+    @include mq(tab) {
+      margin-bottom: 0;
+    }
+    @include mq(desk) {
+      width: 50%;
+      height: auto;
+    }
+  }
+  .modal-wrap-img-btn {
+    position: relative;
+  }
+  
+  .modal-wrap-img-btn img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .modal-image {
+    display: block;
+    width: 240px;
+    height: 357px;
+    border-radius: 5px;
+    @include mq(tab) {
+      width: 264px;
+      height: 374px;
+    }
+    @include mq(desk) {
+      width: 375px;
+      height: 478px;
+    }
+  }
+  
+  .modal-btn-trailer {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #B92F2C;
+    transition: color 250ms linear;
+    &:hover,
+    &:focus {
+      color: #FFFFFF;
+    }
+  }
+  
+  .btn-trailer-icon {
+    width: 25px;
+    height: 25px;
+    fill: #000000;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -55%);
+    transition: fill 250ms linear;
+    .modal-btn-trailer:hover &,
+    .modal-btn-trailer:focus & {
+      fill: #FFFFFF;
+    }
+  }
+  
+  .modal-info {
+    width: 100%;
+    @include mq(tab) {
+      width: 264px;
+    }
+    @include mq(desk) {
+      width: 391px;
+    }
+  }
+  .modal-info-name {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.15;
+    @include mq(desk) {
+      font-size: 30px;
+      line-height: 1.17;
+    }
+  }
+  .modal-info-list {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .modal-info-item {
+    display: flex;
+    flex-grow: 1;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #8c8c8c;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+  .modal-info-name-value {
+    width: 108px;
+    @include mq(desk) {
+      width: 150px;
+    }
+  }
+  .modal-info-value {
+    width: calc(100% - 108px);
+    @include mq(desk) {
+      width: calc(100% - 150px);
+    }
+    color: #000000;
+  }
+  .modal-info-value-vote,
+  .modal-info-value-votes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3px;
+    padding-left: 10px;
+    padding-right: 9px;
+    height: 16px;
+    background-color: #B92F2C;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  .modal-info-value-votes {
+    margin-left: 3px;
+    margin-right: 0px;
+    background-color: #F7F7F7;
+    color: #000000;
+  }
+  .modal-info-pre-about {
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+  }
+  .modal-info-about {
+    padding-right: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.67;
+    height: 200px;
+    overflow-y: scroll;
+  
+    @include mq(tab) {
+      height: 160px;
+    }
+  }
+  .btn-modal-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+  
+    @include mq(desk) {
+      justify-content: normal;
+    }
+  }
+  .modal-btn-wrap {
+    position: relative;
+  }
+
+  .modal-btn {
+    cursor: pointer;
+    width: 110px;
+    height: 44px;
+    padding: 6px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    border: 1px solid #B92F2C;
+    background-color: #B92F2C;
+    border-radius: 20px;
+    transition: background-color 250ms linear, color 250ms linear;
+  
+    @include mq(tab) {
+      width: 125px;
+    }
+    @include mq(desk) {
+      width: 136px;
+    }
+  
+    &:hover,
+    &:focus {
+      background-color: #ffffff;
+      border: 1px solid #B92F2C;
+      color: #B92F2C;
+    }
+    &-watched {
+      padding: 6px 6px;
+    }
+    &-queue {
+      padding: 6px;
+      @include mq(tab) {
+        padding: 0;
+      }
+    }
+
+  }
+  .modal-btn-rem {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
