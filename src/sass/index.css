@@ -1163,6 +1163,10 @@ body {
   fill: #B92F2C;
 }
 
+.modal-window-close {
+  border: none;
+}
+
 .modal-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -1411,7 +1415,7 @@ body {
 }
 .modal-btn:hover, .modal-btn:focus {
   background-color: #ffffff;
-  border: 1px solid #000000;
+  border: 1px solid #B92F2C;
   color: #B92F2C;
 }
 .modal-btn-watched {

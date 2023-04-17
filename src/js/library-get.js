@@ -102,6 +102,7 @@ console.log(btnHomeRef);
 
 btnMyLibraryRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
 btnHomeRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
+const paginationRef = document.querySelector('#pagination');
 
 function changeStyleOnBtnHomeLibrary(e) {
   if (e.target.dataset.status_library === 'library') {
