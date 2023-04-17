@@ -20,12 +20,14 @@
   line-height: 1.16;
   letter-spacing: 0.03em;
   text-align: center;
-  padding: 5% 10%;
+  text-transform: uppercase;
+  padding: 40px 80px;
   border-radius: 6px;
   transition: color 0.2s ease-in-out;
   background: radial-gradient(#b92f2c 1px, transparent 1px);
   background-size: 3px 3px;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
