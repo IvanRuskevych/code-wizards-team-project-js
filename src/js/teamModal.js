@@ -48,4 +48,3 @@ function onEscPress(e) {
     modalTeam.removeEventListener('click', onBackdropClick);
   }
 }
-

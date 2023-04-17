@@ -22,11 +22,11 @@
   text-align: center;
   padding: 5% 10%;
   border-radius: 6px;
-    transition: color 0.2s ease-in-out;
-    background: radial-gradient(#B92F2C 1px, transparent 1px);
-      background-size: 3px 3px;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+  transition: color 0.2s ease-in-out;
+  background: radial-gradient(#b92f2c 1px, transparent 1px);
+  background-size: 3px 3px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 // .team__name:hover {
@@ -35,10 +35,9 @@
 
 @keyframes background {
   50% {
-    background: #B92F2C;
-    box-shadow: 0 -140px 70px -120px #B92F2C inset,
-      0 -210px 70px -120px #f7f7f7 inset,
-      0 -280px 70px -120px grey inset;
+    background: #b92f2c;
+    box-shadow: 0 -140px 70px -120px #b92f2c inset,
+      0 -210px 70px -120px #f7f7f7 inset, 0 -280px 70px -120px grey inset;
   }
 }
 
@@ -115,7 +114,7 @@
 
   &:hover,
   &:focus {
-    transform: scale(1.05)
+    transform: scale(1.05);
   }
 }
 
@@ -127,7 +126,7 @@
   text-align: center;
   margin-bottom: 10px;
   border: none;
-  border-bottom: 2px solid #B92F2C;
+  border-bottom: 2px solid #b92f2c;
   color: #000000;
 }
 
@@ -140,7 +139,7 @@
 
   margin-bottom: 10px;
 
-  color: #B92F2C;
+  color: #b92f2c;
 }
 
 // Социальные иконки
@@ -174,7 +173,7 @@
 
     &:hover,
     &:focus {
-      background-color: #B92F2C;
+      background-color: #b92f2c;
       color: #ffffff;
       /*иконка наследует цвет от родительского элемента social-link */
     }
@@ -193,7 +192,6 @@
   width: 170px;
   height: 120px;
   border-radius: 20px;
-
 }
 
 .team__img-wrapper .team__img,
