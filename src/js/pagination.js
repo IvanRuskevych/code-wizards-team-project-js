@@ -68,7 +68,7 @@ getAPITrend().then(data => {
     showHideLoader(refs.loader);
     getAPITrend(page).then(data => {
       showHideLoader(refs.loader);
-    // console.log(data.results)
+      // console.log(data.results)
       refs.gallery.innerHTML = renderTrendCollection(data.page);
       // btnUp();
     });
