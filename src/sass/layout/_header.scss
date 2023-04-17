@@ -213,6 +213,12 @@
     }
   }
 }
+
+.logo--link {
+  display: flex;
+  align-items: center;
+}
+
 .logo__icon {
   width: 32px;
   height: 32px;
@@ -226,11 +232,13 @@
     height: 59px;
   }
 }
+
 .logo__title {
   color: #fff;
   font-size: 32px;
   font-weight: 500;
   line-height: 1.18;
+
   @include mq(tab) {
     font-size: 40px;
   }
@@ -240,6 +248,6 @@
   }
 }
 
-// .library-btn-hidden {
-//   display: none;
-// }
+.library-btn-hidden {
+  display: none;
+}
