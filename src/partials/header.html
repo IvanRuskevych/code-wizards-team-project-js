@@ -50,6 +50,7 @@
               class="btn--link btn"
               id="library-button"
               data-status_library="library"
+              data-active="false"
               >My Library</a
             >
           </nav>
@@ -71,23 +72,30 @@
                 </svg>
               </button>
               <p class="notification">
-                Search result not successful. Enter the correct movie name.
+                Search result not successful.<br />
+                Enter the correct movie name.
               </p>
             </form>
           </div>
         </div>
 
         <div class="logo--box">
-          <a href="./" class="logo--link">
+          <a href="#" class="logo--link">
+            <svg class="logo__icon">
+              <use href="./images/symbol-defs.svg#icon-film"></use>
+            </svg>
+            <p class="logo__title">Filmoteka</p>
+          </a>
+          <!-- <a href="./" class="logo--link">
             <span class="logo--icon"
               ><svg class="logo__icon">
                 <use href="./images/symbol-defs.svg#icon-film"></use>
               </svg>
             </span>
             <span class="logo__title">Filmoteka</span>
-          </a>
+          </a> -->
         </div>
-        <div class="library-btn-box library-btn-hidden library-btn-visual">
+        <div class="library-btn-box library-btn-hidden">
           <button
             class="btn--watched library--btn library-current-btn btn"
             type="button"

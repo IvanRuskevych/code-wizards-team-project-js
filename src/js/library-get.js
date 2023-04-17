@@ -96,9 +96,13 @@ btnQueueRef.addEventListener('click', changeStyleOnButtonsLibrary);
 // ЗМІНА СТИЛІВ ДЛЯ HOME / LIBRARY
 
 const btnLibraryBox = document.querySelector('.library-btn-box');
-// console.log(btnLibraryBox);
+console.log(btnLibraryBox);
 const btnHomeRef = document.querySelector('[data-status_library="home"]');
-// console.log(btnHomeRef);
+console.log(btnHomeRef);
+
+btnMyLibraryRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
+btnHomeRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
+const paginationRef = document.querySelector('#pagination');
 
 function changeStyleOnBtnHomeLibrary(e) {
   if (e.target.dataset.status_library === 'library') {
@@ -108,22 +112,10 @@ function changeStyleOnBtnHomeLibrary(e) {
       btnMyLibraryRef.classList.add('btn--current');
       btnHomeRef.classList.remove('btn--current');
       formSearchRef.classList.add('visually-hidden');
+      btnLibraryBox.classList.add('library-btn-visual');
       return;
     }
-  } else if (e.target.dataset.status_library === 'home') {
-    btnMyLibraryRef.classList.remove('btn--current');
-    btnHomeRef.classList.add('btn--current');
-
-    // -- НЕ ВИХОДИТЬ НАВІШАТИ КЛАСС
-    btnLibraryBox.classList.add('visually-hidden');
-    btnWatchedRef.classList.add('visually-hidden');
-    btnQueueRef.classList.add('visually-hidden');
-
-    // btnWatchedRef.dataset = 'hidden';
-    // btnQueueRef.style.display = 'none';
-    return;
   }
+  btnMyLibraryRef.classList.remove('btn--current');
+  btnHomeRef.classList.add('btn--current');
 }
-
-btnMyLibraryRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
-btnHomeRef.addEventListener('click', changeStyleOnBtnHomeLibrary);

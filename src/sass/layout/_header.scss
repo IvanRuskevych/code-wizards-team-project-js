@@ -106,9 +106,7 @@
     }
   }
 }
-.form-wrap {
-  margin-right: auto;
-}
+
 
 .header__form {
   display: flex;
@@ -177,7 +175,8 @@
 .notification {
   position: absolute;
   top: 50px;
-  right: 50%;
+  left: 0;
+  // right: 50%;
   color: #fff;
   font-size: 10px;
   font-weight: 400px;
@@ -185,8 +184,7 @@
   margin-top: 8px;
   width: 155px;
   @include mq(tab) {
-    width: 135px;
-    padding-left: 32px;
+    left: 15px;
   }
 }
 
@@ -213,6 +211,12 @@
     }
   }
 }
+
+.logo--link {
+  display: flex;
+  align-items: center;
+}
+
 .logo__icon {
   width: 32px;
   height: 32px;
@@ -226,11 +230,13 @@
     height: 59px;
   }
 }
+
 .logo__title {
   color: #fff;
   font-size: 32px;
   font-weight: 500;
   line-height: 1.18;
+
   @include mq(tab) {
     font-size: 40px;
   }
@@ -240,6 +246,6 @@
   }
 }
 
-// .library-btn-hidden {
-//   display: none;
-// }
+.library-btn-hidden {
+  display: none;
+}
