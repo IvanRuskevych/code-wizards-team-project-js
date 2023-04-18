@@ -1,3 +1,5 @@
+import { galleryListRef } from './library-get';
+
 initLibrary();
 
 function initLibrary() {
@@ -56,8 +58,10 @@ function statusChecked(e) {
     let arrayMovies = getLibrary();
     arrayMovies.splice(idMovieForDelete, 1);
     localStorage.setItem('listLibrary', JSON.stringify(arrayMovies));
-    return addMovie(e, id, status, release);
+    addMovie(e, id, status, release);
+    // renderLibrary(galleryListRef, collection, status);
+    return;
   }
 }
 
-export { initLibrary, statusChecked };
+export { initLibrary, statusChecked, isMovieInLibrary };
