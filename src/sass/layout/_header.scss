@@ -187,35 +187,32 @@
     left: 15px;
   }
 }
-
+.logo--link {
+  text-decoration: none;
+  // display: flex;
+  // align-items: center;
+}
 .logo--box {
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0px;
   gap: 8px;
   color: #ffffff;
-  font-size: 32px;
-  line-height: 1.17;
+  // font-size: 32px;
+  // line-height: 1.17;
   margin-top: 312px;
 
   @include mq(tab) {
     justify-content: flex-start;
     margin-top: 105px;
-    height: 47px;
+    margin-bottom: 8px;
 
     @include mq(desk) {
       margin-top: 151px;
       align-items: center;
-      height: 75px;
     }
   }
-}
-
-.logo--link {
-  display: flex;
-  align-items: center;
 }
 
 .logo__icon {
@@ -235,18 +232,18 @@
 }
 
 .logo__title {
-  color: #fff;
   font-size: 32px;
   font-weight: 500;
-  line-height: 1.18;
+  line-height: 1.19;
+  color: #fff;
 
   @include mq(tab) {
     font-size: 40px;
+    line-height: 1.18;
   }
 
   @include mq(desk) {
     font-size: 64px;
-    height: 59px;
   }
 }
 
