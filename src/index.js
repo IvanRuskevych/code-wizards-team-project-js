@@ -78,7 +78,7 @@ if (active) {
 
 document.querySelector('#library-button').addEventListener('click', () => {
 	console.log('click')
-	active = !active
+	active = true
 	console.log(active)
 	localStorage.setItem('active', JSON.stringify(active));
 	// btnMyLibraryRef.dataset.active = !active
