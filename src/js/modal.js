@@ -151,7 +151,7 @@ function renderMarkupModal(el) {
   return `<div class="modal-img-wrap">
           <div class="modal-wrap-img-btn"><img src="https://image.tmdb.org/t/p/w500/${
             el.poster_path
-          }" alt="${el.title}" class="modal-image" width="500" height="750"/>
+          }" alt="${el.title}" class="modal-image" width="375" height="478"/>
             <button type="button" class="modal-btn-trailer"><svg class="btn-trailer-icon"><use href="${sprite}#icon-play"></use></svg>
           </button></div>
       </div>
