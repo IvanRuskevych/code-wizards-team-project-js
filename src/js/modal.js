@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-import { statusChecked } from './library-set';
+import { statusChecked, isMovieInLibrary } from './library-set';
+import { galleryListRef, getLibrary, resetGallery } from './library-get';
 
 const API_KEY = '7c0c458e245909c66f3397c50f32766a';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -43,7 +43,7 @@ async function openModal(item) {
   const li = item.target.closest('.gallery__item');
   const id = li.getAttribute('data-id');
   const response = await fetchFilmById(id).then(r => {
-    console.log(r);
+    // console.log(r);
     return r.data;
   });
 
@@ -68,14 +68,13 @@ async function openModal(item) {
       renderTrail(response.results[officialTrail])
     );
   }
-
   // --------------library #######################################
   const btnModalWatched = document.querySelector(
     'button[data-status="watched"]'
   );
   const btnModalQueue = document.querySelector('button[data-status="queue"]');
-  // console.log(btnModalWatched);
-  // console.log(btnModalQueue);
+  console.log(btnModalWatched);
+  console.log(btnModalQueue);
 
   // initial set library to localstorage
 
@@ -83,6 +82,61 @@ async function openModal(item) {
   btnModalQueue.addEventListener('click', statusChecked);
 
   // ########################################################################
+  // ############################################################
+  // galleryListRef.addEventListener('click', changeModalBtnStatus);
+
+  changeModalBtnStatus(item);
+
+  function changeModalBtnStatus(e) {
+    console.log(e.target);
+    console.log(e.target.parentNode.dataset.id);
+
+    console.log(getLibrary());
+
+    let currentMovieId = e.target.parentNode.dataset.id;
+    let currentMovieIndex = getLibrary().findIndex(
+      movie => movie.id === currentMovieId
+    );
+
+    console.log(currentMovieIndex);
+    console.log(currentMovieId);
+
+    if (isMovieInLibrary(currentMovieId)) {
+      console.log(isMovieInLibrary(currentMovieId));
+      if (getLibrary()[currentMovieIndex].status === 'watched') {
+        // console.log(getLibrary()[currentMovieIndex].status);
+        // console.log(btnModalWatched);
+        btnModalWatched.textContent = 'have watched';
+        btnModalWatched.classList.add('btn-turn-on');
+        return console.log(1111);
+      }
+      btnModalQueue.textContent = 'in queue for watching';
+      btnModalQueue.classList.add('btn-turn-on');
+      return console.log(222);
+    }
+  }
+  btnModalWatched.addEventListener('click', changeBtnStyle);
+  btnModalQueue.addEventListener('click', changeBtnStyle);
+
+  function changeBtnStyle(e) {
+    // console.log(!e.target.classList.contains('btn-turn-on'));
+    // console.log(e.target.dataset.status);
+    if (!e.target.classList.contains('btn-turn-on')) {
+      if (e.target.dataset.status === 'watched') {
+        // console.log(e.target.dataset.status);
+        btnModalWatched.textContent = 'has watched';
+        btnModalQueue.textContent = 'add to queue';
+        btnModalWatched.classList.add('btn-turn-on');
+        btnModalQueue.classList.remove('btn-turn-on');
+        return;
+      }
+      btnModalWatched.textContent = 'add to watched';
+      btnModalQueue.textContent = 'in queue for watching';
+      btnModalQueue.classList.add('btn-turn-on');
+      btnModalWatched.classList.remove('btn-turn-on');
+      return;
+    }
+  }
 }
 
 function renderBackdrop(el) {
@@ -142,8 +196,7 @@ function renderMarkupModal(el) {
           )}"
           data-status="watched"
 
-          >Add to watched
-          </button>
+          >Add to watched</button>
 			 
 			 </div>
 			 <div class="modal-btn-wrap">
@@ -155,8 +208,7 @@ function renderMarkupModal(el) {
          )}" 
         data-status="queue"
 
-        >Add to queue
-          
+        >Add to queue</button>         
 			 </div>
         </div>
       </div>`;
@@ -169,7 +221,11 @@ function closeModal(e) {
     modalWrap.innerHTML = '';
     document.body.style.overflow = '';
     backdrop.style.backgroundImage = '';
+
+    renderLibrary(galleryListRef, arrayMovies, 'watched');
+
     document.removeEventListener('keydown', closeModal);
+    return windows.location.reload();
   }
 }
 
@@ -197,3 +253,13 @@ function renderTrail({ key }) {
     class='modal-image'
   ></iframe>`;
 }
+
+// function btnRemoveWatched() {
+//   return (btnModalWatched.textContent = 'Remove from watched');
+// }
+
+// function btnRemoveQueue() {
+//   return (btnModalQueue.textContent = 'Remove from queue');
+// }
+// btnModalWatched.textContent = 'Remove from watched';
+// btnModalWatched.textContent = 'Remove from watched';

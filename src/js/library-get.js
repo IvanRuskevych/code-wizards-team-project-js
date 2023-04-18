@@ -1,5 +1,5 @@
 import { resetGallery } from './fetchAPITrends';
-
+export { galleryListRef, getLibrary };
 const btnMyLibraryRef = document.querySelector('#library-button');
 const btnWatchedRef = document.querySelector(
   'button[data-status_library="watched"]'
