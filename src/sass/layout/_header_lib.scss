@@ -36,3 +36,46 @@
     flex-direction: row;
   }
 }
+
+// для search bar
+.js-list-place {
+  position: absolute;
+  background-color:  #fff;
+  top: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  
+}
+
+.js-list-place li {
+  color: black;
+  background-color: #fff;
+//  margin: 10px;
+  padding-bottom: 5px;
+}
+
+.js-list-place li::after {
+
+  display: block;
+  border: 1px solid #1d1c1c; /*стиль разделительной линии */
+   display: inline-block; 
+ 
+}
+
+.search__item-list{
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.search__item-list:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.search__item-genres{
+  color:#b92f2c;
+}
+
+// .search__item-name {
+//   text-transform: uppercase;
+// }
