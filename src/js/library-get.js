@@ -1,6 +1,6 @@
 import { resetGallery } from './fetchAPITrends';
 
-const btnMyLibraryRef = document.querySelector('#library-button');
+export const  btnMyLibraryRef = document.querySelector('#library-button');
 const btnWatchedRef = document.querySelector(
   'button[data-status_library="watched"]'
 );
@@ -20,7 +20,7 @@ btnQueueRef.addEventListener('click', changeStyleOnButtonsLibrary);
 btnMyLibraryRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
 btnHomeRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
 
-function getLibrary() {
+export function getLibrary() {
   try {
     const movie = JSON.parse(localStorage.getItem('listLibrary'));
     return movie;
@@ -42,17 +42,18 @@ function onBtnLibraryClick(e) {
   renderLibrary(galleryListRef, getLibrary(), status);
 }
 
-function renderLibrary(parent, collection, status) {
+export function renderLibrary(parent, collection, status) {
   if (status === 'library') {
     return (parent.innerHTML = markupMoviesFromLocalStorage(
       collection,
       'watched'
     ));
   }
+  console.log(parent)
   return (parent.innerHTML = markupMoviesFromLocalStorage(collection, status));
 }
 
-function markupMoviesFromLocalStorage(collection, statusForMarkup) {
+export function markupMoviesFromLocalStorage(collection, statusForMarkup) {
   return collection
     .filter(movie => movie.status === statusForMarkup)
     .map(element => {
