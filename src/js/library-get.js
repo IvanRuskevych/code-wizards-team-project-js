@@ -8,27 +8,38 @@ const btnQueueRef = document.querySelector(
   'button[data-status_library="queue"]'
 );
 const formSearchRef = document.querySelector('.form-wrap');
+const btnLibraryBox = document.querySelector('.library-btn-box');
+const btnHomeRef = document.querySelector('[data-status_library="home"]');
+const galleryListRef = document.querySelector('.gallery__list');
 
 btnMyLibraryRef.addEventListener('click', onBtnLibraryClick);
 btnWatchedRef.addEventListener('click', onBtnLibraryClick);
 btnQueueRef.addEventListener('click', onBtnLibraryClick);
+btnWatchedRef.addEventListener('click', changeStyleOnButtonsLibrary);
+btnQueueRef.addEventListener('click', changeStyleOnButtonsLibrary);
+btnMyLibraryRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
+btnHomeRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
 
 function getLibrary() {
-  const movie = JSON.parse(localStorage.getItem('listLibrary'));
-  return movie;
+  try {
+    const movie = JSON.parse(localStorage.getItem('listLibrary'));
+    return movie;
+  } catch (error) {
+    console.log(error.name);
+    console.log(error.massege);
+    console.log(error.stack);
+  }
 }
 
 function onBtnLibraryClick(e) {
-  if (e.target.dataset.status_library === 'library') {
-    btnWatchedRef.classList.remove('visually-hidden');
-    btnQueueRef.classList.remove('visually-hidden');
-  }
-
   let status = e.target.dataset.status_library;
-  console.log(status);
-  const galleryList = document.querySelector('.gallery__list');
-  resetGallery(galleryList);
-  renderLibrary(galleryList, getLibrary(), status);
+
+  if (e.target.dataset.status_library === 'library') {
+    elementClassRemove(btnWatchedRef, 'visually-hidden');
+    elementClassRemove(btnQueueRef, 'visually-hidden');
+  }
+  resetGallery(galleryListRef);
+  renderLibrary(galleryListRef, getLibrary(), status);
 }
 
 function renderLibrary(parent, collection, status) {
@@ -63,7 +74,6 @@ function markupMoviesFromLocalStorage(collection, statusForMarkup) {
 }
 
 // ЗМІНА СТИЛІВ ДЛЯ WATCHED/QUEUE
-
 function changeStyleOnButtonsLibrary(e) {
   if (e.target.dataset.status_library === 'watched') {
     if (e.target.classList.contains('library-current-btn')) {
@@ -78,17 +88,7 @@ function changeStyleOnButtonsLibrary(e) {
   return;
 }
 
-btnWatchedRef.addEventListener('click', changeStyleOnButtonsLibrary);
-btnQueueRef.addEventListener('click', changeStyleOnButtonsLibrary);
-
 // ЗМІНА СТИЛІВ ДЛЯ HOME / LIBRARY
-
-const btnLibraryBox = document.querySelector('.library-btn-box');
-const btnHomeRef = document.querySelector('[data-status_library="home"]');
-
-btnMyLibraryRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
-btnHomeRef.addEventListener('click', changeStyleOnBtnHomeLibrary);
-
 function changeStyleOnBtnHomeLibrary(e) {
   if (e.target.dataset.status_library === 'library') {
     if (e.target.classList.contains('btn--current')) {
