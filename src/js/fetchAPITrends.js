@@ -53,7 +53,7 @@ export function renderList(parent, collection) {
       })
       .join('') +
     `<li class="gallery__item-banner" >
-        <img  alt="" class="gallery__item-img-banner">
+        <img  alt="Project | Students by GOit" class="gallery__item-img-banner">
         <p class="gallery__item-descr-banner">
           <span class="gallery__item-name-banner">
             Project | Students by GOit
