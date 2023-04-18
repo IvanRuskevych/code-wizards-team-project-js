@@ -23,10 +23,25 @@ const logoLink = document.querySelector('.logo--link');
 homeBtn.addEventListener('click', (e) => {
 	e.preventDefault();
 	renderTrendCollection(pageState)
+	if (localStorage.getItem('active')) {
+		active = JSON.parse(localStorage.getItem('active'))
+	} else {
+		active = false;
+	}
+	active = false;
+	localStorage.setItem('active', JSON.stringify(active));
+	
 })
 logoLink.addEventListener('click', (e) => {
 	e.preventDefault()
 	renderTrendCollection(pageState)
+	if (localStorage.getItem('active')) {
+		active = JSON.parse(localStorage.getItem('active'))
+	} else {
+		active = false;
+	}
+	active = false;
+	localStorage.setItem('active', JSON.stringify(active));
 })
 
 
@@ -52,12 +67,12 @@ if (active) {
 	resetGallery(document.querySelector('.gallery-js'))
 	renderLibrary(document.querySelector('.gallery-js'), getLibrary(), 'watched')
 	console.log('library')
-	
+
 } else {
 	resetGallery(document.querySelector('.gallery-js'))
 	renderTrendCollection(pageState)
 	console.log('trend')
-	
+
 }
 
 
