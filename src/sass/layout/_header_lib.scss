@@ -1,3 +1,5 @@
+
+
 .library-btn-visual {
   display: flex;
   justify-content: center;
@@ -26,9 +28,11 @@
   background-color: #b92f2c;
 }
 
+
+
 .header-desk-library {
   @include mq(tab) {
     display: flex;
-    // flex-direction: row;
+    flex-direction: row;
   }
 }
