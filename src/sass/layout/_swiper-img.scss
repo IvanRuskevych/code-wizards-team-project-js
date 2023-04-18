@@ -1,129 +1,137 @@
 .swiper__img1 {
-    width: 280px;
-    height: 460px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%), url(cinema-elements-red-background-with-copy-space.jpg);
+  width: 280px;
+  height: 460px;
+  border-radius: 10px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 65.37%
+    ),
+    url(cinema-elements-red-background-with-copy-space.jpg);
 
-    background-image: url(../images/mobile-red-popcorn@1x.webp);
+  background-image: url(../images/mobile-red-popcorn@1x.webp);
 
-
-    @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: url(../images/mobile-red-popcorn@2x.webp);
+    background-image: url(../images/mobile-red-popcorn@2x.webp);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 222px;
+    border-radius: 15px;
+    background-image: url(../images/tablet-red-popcorn@1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/tablet-red-popcorn@2x.webp);
     }
+  }
 
-    @media screen and (min-width: 768px) {
-        width: 704px;
-        height: 222px;
-        border-radius: 15px;
-        background-image: url(../images/tablet-red-popcorn@1x.webp);
+  @media screen and (min-width: 1280px) {
+    width: 1216px;
+    height: 316px;
+    border-radius: 15px;
+    background-image: url(../images/desk-red-popcorn@1x.webp);
 
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url(../images/tablet-red-popcorn@2x.webp);
-        }
-
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/desk-red-popcorn@2x.webp);
     }
-
-    @media screen and (min-width: 1280px) {
-        width: 1216px;
-        height: 316px;
-        border-radius: 15px;
-        background-image: url(../images/desk-red-popcorn@1x.webp);
-
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url(../images/desk-red-popcorn@2x.webp);
-        }
-
-    }
+  }
 }
 
 .swiper__img2 {
-    width: 280px;
-    height: 460px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%), url(cinema-elements-red-background-with-copy-space.jpg);
+  width: 280px;
+  height: 460px;
+  border-radius: 10px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 65.37%
+    ),
+    url(cinema-elements-red-background-with-copy-space.jpg);
 
-    background-image: url(../images/mobile-orange-popcorn@1x.webp);
+  background-image: url(../images/mobile-orange-popcorn@1x.webp);
 
-    @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: url(../images/mobile-orange-popcorn@2x.webp);
+    background-image: url(../images/mobile-orange-popcorn@2x.webp);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 222px;
+    border-radius: 15px;
+    background-image: url(../images/tablet-orange-popcorn@1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/tablet-orange-popcorn@2x.webp);
     }
+  }
 
-    @media screen and (min-width: 768px) {
-        width: 704px;
-        height: 222px;
-        border-radius: 15px;
-        background-image: url(../images/tablet-orange-popcorn@1x.webp);
+  @media screen and (min-width: 1280px) {
+    width: 1216px;
+    height: 316px;
+    border-radius: 15px;
+    background-image: url(../images/desk-orange-popcorn@1x.webp);
 
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url(../images/tablet-orange-popcorn@2x.webp);
-        }
-
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/desk-orange-popcorn@2x.webp);
     }
-
-    @media screen and (min-width: 1280px) {
-        width: 1216px;
-        height: 316px;
-        border-radius: 15px;
-        background-image: url(../images/desk-orange-popcorn@1x.webp);
-
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url(../images/desk-orange-popcorn@2x.webp);
-        }
-
-    }
+  }
 }
 
 .swiper__img3 {
-    width: 280px;
-    height: 460px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%), url(cinema-elements-red-background-with-copy-space.jpg);
+  width: 280px;
+  height: 460px;
+  border-radius: 10px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 65.37%
+    ),
+    url(cinema-elements-red-background-with-copy-space.jpg);
 
-    background-image: url(../images/mobile-yellow-popcorn@1x.webp);
+  background-image: url(../images/mobile-yellow-popcorn@1x.webp);
 
-    @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: url(../images/mobile-yellow-popcorn@2x.webp);
+    background-image: url(../images/mobile-yellow-popcorn@2x.webp);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 222px;
+    border-radius: 15px;
+    background-image: url(../images/tablet-yellow-popcorn@1x.webp);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/tablet-yellow-popcorn@2x.webp);
     }
+  }
 
-    @media screen and (min-width: 768px) {
-        width: 704px;
-        height: 222px;
-        border-radius: 15px;
-        background-image: url(../images/tablet-yellow-popcorn@1x.webp);
+  @media screen and (min-width: 1280px) {
+    width: 1216px;
+    height: 316px;
+    border-radius: 15px;
+    background-image: url(../images/desk-yellow-popcorn@1x.webp);
 
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url(../images/tablet-yellow-popcorn@2x.webp);
-        }
-
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/desk-yellow-popcorn@2x.webp);
     }
-
-    @media screen and (min-width: 1280px) {
-        width: 1216px;
-        height: 316px;
-        border-radius: 15px;
-        background-image: url(../images/desk-yellow-popcorn@1x.webp);
-
-        @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: url(../images/desk-yellow-popcorn@2x.webp);
-        }
-
-    }
+  }
 }
