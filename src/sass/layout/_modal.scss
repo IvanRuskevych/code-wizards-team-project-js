@@ -288,11 +288,14 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 20px;
+  gap: 5px;
 
-  @include mq(desk) {
-    justify-content: normal;
-  }
+
+
+
+  // @include mq(desk) {
+  //   justify-content: normal;
+  // }
 }
 
 .modal-btn-wrap {
@@ -348,4 +351,19 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.library-current-btn {
+  color: #fff;
+  background-color: #b92f2c;
+}
+
+.btn-turn-on {
+  color: #b92f2c;
+  background-color: #fff;
+  border: 1px solid #b92f2c;
+}
+
+.btn-del{
+  width: 44px;
 }
