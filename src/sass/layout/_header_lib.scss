@@ -36,7 +36,8 @@
 // для search bar
 .js-list-place {
   position: absolute;
-  background-color:  #fff;
+  // background-color:  #fff;
+  background-color: inherit;
   top: 50px;
   padding: 5px;
   border-radius: 5px;
