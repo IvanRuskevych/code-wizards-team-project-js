@@ -34,17 +34,15 @@ export function renderList(parent, collection) {
         } else {
           return `
         <li class="gallery__item" data-id="${element.id}">
-        <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${
-            element.title || element.name
-          }" width="394" height="574" class="gallery__item-img">
+        <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title || element.name
+            }" width="394" height="574" class="gallery__item-img">
         <p class="gallery__item-descr">
           <span class="gallery__item-name">
             ${element.title || element.name}
           </span>
           <span class="gallery__item-genres">
-            ${genre} | ${
-            (element.release_date || element.first_air_date).slice(0, 4) ?? ''
-          }
+            ${genre} | ${(element.release_date || element.first_air_date).slice(0, 4) ?? ''
+            }
           </span>
         </p>
       </li>
@@ -53,7 +51,7 @@ export function renderList(parent, collection) {
       })
       .join('') +
     `<li class="gallery__item-banner" >
-        <img  alt="Project | Students by GOit" class="gallery__item-img-banner">
+        <span class="gallery__item-img-banner"></span>
         <p class="gallery__item-descr-banner">
           <span class="gallery__item-name-banner">
             Project | Students by GOit
