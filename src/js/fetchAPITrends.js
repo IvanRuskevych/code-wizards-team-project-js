@@ -3,6 +3,17 @@ import { genresList } from './genres-list';
 const API_KEY = '7c0c458e245909c66f3397c50f32766a';
 // axios.defaults.baseURL = `https://api.themoviedb.org/3/movie/550?api_key=7c0c458e245909c66f3397c50f32766a`;
 let pageState = 1;
+<<<<<<< HEAD
+export const getAPITrend = async (page) => {
+	const { data } = await axios.get('https://api.themoviedb.org/3/trending/all/day?api_key=7c0c458e245909c66f3397c50f32766a', {
+		params: {
+			page
+		}
+	})
+	return await data;
+}
+// renderTrendCollection(pageState);
+=======
 export const getAPITrend = async page => {
   const { data } = await axios.get(
     'https://api.themoviedb.org/3/trending/all/day?api_key=7c0c458e245909c66f3397c50f32766a',
@@ -15,6 +26,7 @@ export const getAPITrend = async page => {
   return await data;
 };
 renderTrendCollection(pageState);
+>>>>>>> main
 
 export function resetGallery(parent) {
   parent.innerHTML = '';

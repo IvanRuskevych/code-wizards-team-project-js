@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { btnMyLibraryRef } from './library-get'
+=======
 import { galleryListRef, renderLibrary } from './library-get';
+>>>>>>> main
 
 initLibrary();
 
@@ -79,4 +83,15 @@ function statusChecked(e) {
   }
 }
 
+<<<<<<< HEAD
+
+// ==========================================
+
+
+
+
+
+export { initLibrary, statusChecked };
+=======
 export { initLibrary, statusChecked, isMovieInLibrary, addListLibrary };
+>>>>>>> main
