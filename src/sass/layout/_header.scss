@@ -12,7 +12,7 @@
 
 .header {
   position: relative;
-  display: flex;
+
   height: 460px;
   padding: 14px;
   // background-image: url('../images/mobile-red-popcorn@1x.webp');
@@ -20,7 +20,6 @@
   background-position: center;
   background-size: cover;
   border-radius: 10px;
-
 
   // @media (min-device-pixel-ratio: 2),
   // (-webkit-min-device-pixel-ratio: 2),
@@ -49,14 +48,9 @@
   }
 }
 
-
 .background__picture {
   background-image: url(/src/images/mobile-red-popcorn@1x.webp);
 }
-
-// .header__container {
-//   position: relative;
-// }
 
 .swiper.background__slider {
   // position: absolute;
@@ -78,6 +72,10 @@
     align-items: center;
     gap: 4px;
   }
+
+  @include mq(desk) {
+    gap: 8px;
+  }
 }
 
 .header-nav {
@@ -88,87 +86,72 @@
 }
 
 .btn {
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500px;
   font-size: 12px;
   text-transform: uppercase;
   line-height: 1.16;
-  height: 34px;
-  padding: 10px 22px;
+  padding: 10px 26px;
   border-radius: 100px;
-  cursor: pointer;
+  border: none;
   color: #000;
   background-color: #fff;
   border: none;
 
   @include mq(tab) {
-    padding: 13px 24px;
+    padding: 12px 24px;
+  }
+
+  @include mq(desk) {
+    padding: 12px 24px;
   }
 
   &--current {
     color: #fff;
     background-color: #000;
   }
+}
 
-  &--link {
-    @include mq(tab) {
-      padding: 12px 24px;
-    }
+.header__form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+
+  @include mq(tab) {
+    margin-top: 0px;
   }
 }
 
-.header__form {
-  display: flex;
-  border-radius: 100px;
-  margin-top: 8px;
-  justify-content: center;
-}
-
-.header__form {
-  display: flex;
-  position: relative;
-}
-
 .header__input {
-  width: 252px;
-  border-radius: 100px;
   width: 100%;
-  padding-top: 10px;
-  padding-left: 14px;
-  padding-bottom: 10px;
-  padding-right: 35px;
-  height: 34px;
-  background: #ffffff;
-  font-family: 'Roboto';
   font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
   color: #000;
-  outline: none;
+  background-color: #fff;
+  border-radius: 100px;
   border: none;
+  padding: 10px 14px;
+  outline: transparent;
+
+  &::placeholder {
+    color: #000;
+    font-size: 12px;
+    line-height: 1.16;
+  }
 
   @include mq(tab) {
-    height: 38px;
-    height: 38px;
-    padding-left: 16px;
-    font-size: 14px;
-    line-height: 16px;
+    width: 165px;
+    padding: 11px 16px;
+
+    &::placeholder {
+      font-size: 14px;
+      line-height: 1.14;
+    }
   }
 
   @include mq(desk) {
     width: 187px;
-    height: 42px;
-  }
-
-  &:hover,
-  &:focus-within {
-    transform: scale(1.1);
-    border-bottom: 3px solid #000;
-  }
-
-  &::placeholder {
-    color: #000;
+    padding: 13px 16px;
   }
 }
 
@@ -183,6 +166,17 @@
   border: none;
   background-color: #fff;
   padding: 0;
+
+  &:hover .header__icon {
+    scale: 1.2;
+  }
+}
+
+.header__icon {
+  @include mq(tab) {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .notification {
@@ -198,39 +192,37 @@
   width: 155px;
 
   @include mq(tab) {
-    // width: 135px;
     left: 15px;
   }
 }
 
+.logo--link {
+  text-decoration: none;
+  // display: flex;
+  // align-items: center;
+}
+
 .logo--box {
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0px;
   gap: 8px;
   color: #ffffff;
-  font-size: 32px;
-  line-height: 1.17;
+  // font-size: 32px;
+  // line-height: 1.17;
   margin-top: 312px;
 
   @include mq(tab) {
     justify-content: flex-start;
     margin-top: 105px;
-    height: 47px;
+    margin-bottom: 8px;
 
     @include mq(desk) {
       margin-top: 151px;
       align-items: center;
-      height: 75px;
     }
   }
-}
-
-.logo--link {
-  display: flex;
-  align-items: center;
 }
 
 .logo__icon {
@@ -250,18 +242,18 @@
 }
 
 .logo__title {
-  color: #fff;
   font-size: 32px;
   font-weight: 500;
-  line-height: 1.18;
+  line-height: 1.19;
+  color: #fff;
 
   @include mq(tab) {
     font-size: 40px;
+    line-height: 1.18;
   }
 
   @include mq(desk) {
     font-size: 64px;
-    height: 59px;
   }
 }
 
