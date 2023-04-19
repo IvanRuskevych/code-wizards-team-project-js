@@ -1,4 +1,4 @@
-import { galleryListRef } from './library-get';
+import { galleryListRef, renderLibrary } from './library-get';
 
 initLibrary();
 
@@ -51,6 +51,7 @@ function addListLibrary(arr) {
 }
 
 function statusChecked(e) {
+  console.log(e.target.dataset.status);
   let id = e.target.dataset.id;
   let status = e.target.dataset.status;
   let release = e.target.dataset.release_date;
@@ -70,7 +71,7 @@ function statusChecked(e) {
     arrayMovies.splice(idMovieForDelete, 1);
     localStorage.setItem('listLibrary', JSON.stringify(arrayMovies));
     addMovie(e, id, status, release);
-    // renderLibrary(galleryListRef, collection, status);
+    renderLibrary(galleryListRef, arrayMovies, status);
     return;
   }
 }

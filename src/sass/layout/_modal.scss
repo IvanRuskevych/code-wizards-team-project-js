@@ -288,13 +288,14 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 20px;
-// ##########################
-  justify-content: right;
+  gap: 5px;
 
-  @include mq(desk) {
-    justify-content: normal;
-  }
+
+
+
+  // @include mq(desk) {
+  //   justify-content: normal;
+  // }
 }
 
 .modal-btn-wrap {
