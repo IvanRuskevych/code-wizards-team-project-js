@@ -73,62 +73,40 @@ async function openModal(item) {
       renderTrail(response.results[officialTrail])
     );
   }
-  // --------------library #######################################
+  // --------------library --------------------------------
   const btnModalWatched = document.querySelector(
     'button[data-status="watched"]'
   );
   const btnModalQueue = document.querySelector('button[data-status="queue"]');
-  console.log(btnModalWatched);
-  console.log(btnModalQueue);
-
-  // initial set library to localstorage
 
   btnModalWatched.addEventListener('click', statusChecked);
   btnModalQueue.addEventListener('click', statusChecked);
 
-  // ########################################################################
-  // ############################################################
-  // galleryListRef.addEventListener('click', changeModalBtnStatus);
-
   changeModalBtnStatus(item);
 
   function changeModalBtnStatus(e) {
-    console.log(e.target);
-    console.log(e.target.parentNode.dataset.id);
-
-    console.log(getLibrary());
-
     let currentMovieId = e.target.parentNode.dataset.id;
     let currentMovieIndex = getLibrary().findIndex(
       movie => movie.id === currentMovieId
     );
 
-    console.log(currentMovieIndex);
-    console.log(currentMovieId);
-
     if (isMovieInLibrary(currentMovieId)) {
-      console.log(isMovieInLibrary(currentMovieId));
       if (getLibrary()[currentMovieIndex].status === 'watched') {
-        // console.log(getLibrary()[currentMovieIndex].status);
-        // console.log(btnModalWatched);
         btnModalWatched.textContent = 'have watched';
         btnModalWatched.classList.add('btn-turn-on');
-        return console.log(1111);
+        return;
       }
       btnModalQueue.textContent = 'in queue for watching';
       btnModalQueue.classList.add('btn-turn-on');
-      return console.log(222);
+      return;
     }
   }
   btnModalWatched.addEventListener('click', changeBtnStyle);
   btnModalQueue.addEventListener('click', changeBtnStyle);
 
   function changeBtnStyle(e) {
-    // console.log(!e.target.classList.contains('btn-turn-on'));
-    // console.log(e.target.dataset.status);
     if (!e.target.classList.contains('btn-turn-on')) {
       if (e.target.dataset.status === 'watched') {
-        // console.log(e.target.dataset.status);
         btnModalWatched.textContent = 'has watched';
         btnModalQueue.textContent = 'add to queue';
         btnModalWatched.classList.add('btn-turn-on');
@@ -157,14 +135,12 @@ async function openModal(item) {
       e.target.parentNode.parentNode.children[1].firstElementChild.classList.contains(
         'btn-turn-on'
       );
-    console.log(hasClassBtnWatched);
-    console.log(hasClassBtnQueue);
+
     let currentMovieIndex = getLibrary().findIndex(
       movie => movie.id === currentMovieId
     );
     let newLibrary = getLibrary();
     newLibrary.splice(currentMovieIndex, 1);
-    console.log(newLibrary);
     addListLibrary(newLibrary);
 
     if (hasClassBtnWatched) {
@@ -185,7 +161,6 @@ async function openModal(item) {
       renderLibrary(galleryListRef, newLibrary, 'queue');
       return;
     }
-    console.log(1);
   }
 }
 
