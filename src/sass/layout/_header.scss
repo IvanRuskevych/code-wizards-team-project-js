@@ -12,7 +12,7 @@
 
 .header {
   position: relative;
-  display: flex;
+
   height: 460px;
   padding: 14px;
   // background-image: url('../images/mobile-red-popcorn@1x.webp');
@@ -72,6 +72,7 @@
     align-items: center;
     gap: 4px;
   }
+
   @include mq(desk) {
     gap: 8px;
   }
@@ -100,6 +101,7 @@
   @include mq(tab) {
     padding: 12px 24px;
   }
+
   @include mq(desk) {
     padding: 12px 24px;
   }
@@ -115,6 +117,7 @@
   display: flex;
   justify-content: center;
   margin-top: 8px;
+
   @include mq(tab) {
     margin-top: 0px;
   }
@@ -129,14 +132,17 @@
   border: none;
   padding: 10px 14px;
   outline: transparent;
+
   &::placeholder {
     color: #000;
     font-size: 12px;
     line-height: 1.16;
   }
+
   @include mq(tab) {
     width: 165px;
     padding: 11px 16px;
+
     &::placeholder {
       font-size: 14px;
       line-height: 1.14;
@@ -160,10 +166,12 @@
   border: none;
   background-color: #fff;
   padding: 0;
+
   &:hover .header__icon {
     scale: 1.2;
   }
 }
+
 .header__icon {
   @include mq(tab) {
     width: 16px;
@@ -187,11 +195,13 @@
     left: 15px;
   }
 }
+
 .logo--link {
   text-decoration: none;
   // display: flex;
   // align-items: center;
 }
+
 .logo--box {
   display: flex;
   // flex-direction: row;
