@@ -17,7 +17,7 @@ function getLibrary() {
 
 function isMovieInLibrary(id) {
   let movieInLibrary = getLibrary().find(movie => movie.id === id);
-  console.log(Boolean(movieInLibrary));
+  // console.log(Boolean(movieInLibrary));
   return Boolean(movieInLibrary); // true
 }
 
@@ -33,7 +33,7 @@ function addMovie(e, id, status, release) {
   let poster =
     e.target.parentNode.parentNode.parentNode.previousElementSibling
       .firstElementChild.firstElementChild.src;
-  console.log(poster);
+  // console.log(poster);
 
   try {
     let list = JSON.parse(localStorage.getItem('listLibrary'));
@@ -51,7 +51,7 @@ function addListLibrary(arr) {
 }
 
 function statusChecked(e) {
-  console.log(e.target.dataset.status);
+  // console.log(e.target.dataset.status);
   let id = e.target.dataset.id;
   let status = e.target.dataset.status;
   let release = e.target.dataset.release_date;
@@ -66,13 +66,16 @@ function statusChecked(e) {
   if (status === currentMovie.status) {
     return;
   } else {
-    let idMovieForDelete = getLibrary().findIndex(movie => movie.id === id);
+    let indexMovie = getLibrary().findIndex(movie => movie.id === id);
     let arrayMovies = getLibrary();
-    arrayMovies.splice(idMovieForDelete, 1);
+    arrayMovies.splice(indexMovie, 1);
     localStorage.setItem('listLibrary', JSON.stringify(arrayMovies));
+
     addMovie(e, id, status, release);
-    renderLibrary(galleryListRef, arrayMovies, status);
-    return;
+    if (status === 'watched') {
+      return renderLibrary(galleryListRef, arrayMovies, 'queue');
+    }
+    return renderLibrary(galleryListRef, arrayMovies, 'watched');
   }
 }
 
