@@ -289,6 +289,8 @@
   flex-wrap: nowrap;
   justify-content: center;
   gap: 20px;
+// ##########################
+  justify-content: right;
 
   @include mq(desk) {
     justify-content: normal;
@@ -359,4 +361,8 @@
   color: #b92f2c;
   background-color: #fff;
   border: 1px solid #b92f2c;
+}
+
+.btn-del{
+  width: 44px;
 }
