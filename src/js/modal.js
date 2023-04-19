@@ -1,6 +1,11 @@
 import axios from 'axios';
-import { statusChecked, isMovieInLibrary } from './library-set';
-import { galleryListRef, getLibrary, resetGallery } from './library-get';
+import { statusChecked, isMovieInLibrary, addListLibrary } from './library-set';
+import {
+  galleryListRef,
+  getLibrary,
+  resetGallery,
+  renderLibrary,
+} from './library-get';
 
 const API_KEY = '7c0c458e245909c66f3397c50f32766a';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -128,14 +133,59 @@ async function openModal(item) {
         btnModalQueue.textContent = 'add to queue';
         btnModalWatched.classList.add('btn-turn-on');
         btnModalQueue.classList.remove('btn-turn-on');
+        btnDelRef.classList.remove('btn-turn-on');
         return;
       }
       btnModalWatched.textContent = 'add to watched';
       btnModalQueue.textContent = 'in queue for watching';
       btnModalQueue.classList.add('btn-turn-on');
       btnModalWatched.classList.remove('btn-turn-on');
+      btnDelRef.classList.remove('btn-turn-on');
       return;
     }
+  }
+  const btnDelRef = document.querySelector('button[data-status="delete"]');
+  btnDelRef.addEventListener('click', onBtnDelClick);
+
+  function onBtnDelClick(e) {
+    let currentMovieId = e.target.dataset.id;
+    let hasClassBtnWatched =
+      e.target.parentNode.parentNode.children[0].firstElementChild.classList.contains(
+        'btn-turn-on'
+      );
+    let hasClassBtnQueue =
+      e.target.parentNode.parentNode.children[1].firstElementChild.classList.contains(
+        'btn-turn-on'
+      );
+    console.log(hasClassBtnWatched);
+    console.log(hasClassBtnQueue);
+    let currentMovieIndex = getLibrary().findIndex(
+      movie => movie.id === currentMovieId
+    );
+    let newLibrary = getLibrary();
+    newLibrary.splice(currentMovieIndex, 1);
+    console.log(newLibrary);
+    addListLibrary(newLibrary);
+
+    if (hasClassBtnWatched) {
+      btnModalWatched.textContent = 'add to watched';
+      btnModalWatched.classList.remove('btn-turn-on');
+      btnDelRef.classList.add('btn-turn-on');
+
+      // resetGallery(galleryListRef);
+      renderLibrary(galleryListRef, newLibrary, 'watched');
+      return;
+    }
+    if (hasClassBtnQueue) {
+      btnModalQueue.textContent = 'add to queue';
+      btnModalQueue.classList.remove('btn-turn-on');
+      btnDelRef.classList.add('btn-turn-on');
+
+      // resetGallery(galleryListRef);
+      renderLibrary(galleryListRef, newLibrary, 'queue');
+      return;
+    }
+    console.log(1);
   }
 }
 
@@ -210,6 +260,13 @@ function renderMarkupModal(el) {
 
         >Add to queue</button>         
 			 </div>
+       <div class="modal-btn-wrap ">
+        <button type="button" class="modal-btn btn-del" data-id="${el.id}"
+      
+        data-status="delete"
+
+        >del</button>         
+			 </div>
         </div>
       </div>`;
 }
@@ -222,10 +279,8 @@ function closeModal(e) {
     document.body.style.overflow = '';
     backdrop.style.backgroundImage = '';
 
-    renderLibrary(galleryListRef, arrayMovies, 'watched');
-
     document.removeEventListener('keydown', closeModal);
-    return windows.location.reload();
+    return;
   }
 }
 

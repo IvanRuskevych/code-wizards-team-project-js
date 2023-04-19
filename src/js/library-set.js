@@ -1,13 +1,15 @@
-import { galleryListRef } from './library-get';
+import { galleryListRef, renderLibrary } from './library-get';
 
 initLibrary();
 
 function initLibrary() {
   let list = JSON.parse(localStorage.getItem('listLibrary'));
   if (list === null) {
-    localStorage.setItem('listLibrary', JSON.stringify([]));
+    addListLibrary([]);
+    // localStorage.setItem('listLibrary', JSON.stringify([]));
   }
 }
+
 function getLibrary() {
   const movie = JSON.parse(localStorage.getItem('listLibrary'));
   return movie;
@@ -32,14 +34,24 @@ function addMovie(e, id, status, release) {
     e.target.parentNode.parentNode.parentNode.previousElementSibling
       .firstElementChild.firstElementChild.src;
   console.log(poster);
-  let list = JSON.parse(localStorage.getItem('listLibrary'));
 
-  list.push({ id, status, release, title, genres, poster });
+  try {
+    let list = JSON.parse(localStorage.getItem('listLibrary'));
+    list.push({ id, status, release, title, genres, poster });
+    return localStorage.setItem('listLibrary', JSON.stringify(list));
+  } catch (error) {
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
+  }
+}
 
-  return localStorage.setItem('listLibrary', JSON.stringify(list));
+function addListLibrary(arr) {
+  return localStorage.setItem('listLibrary', JSON.stringify(arr));
 }
 
 function statusChecked(e) {
+  console.log(e.target.dataset.status);
   let id = e.target.dataset.id;
   let status = e.target.dataset.status;
   let release = e.target.dataset.release_date;
@@ -59,9 +71,9 @@ function statusChecked(e) {
     arrayMovies.splice(idMovieForDelete, 1);
     localStorage.setItem('listLibrary', JSON.stringify(arrayMovies));
     addMovie(e, id, status, release);
-    // renderLibrary(galleryListRef, collection, status);
+    renderLibrary(galleryListRef, arrayMovies, status);
     return;
   }
 }
 
-export { initLibrary, statusChecked, isMovieInLibrary };
+export { initLibrary, statusChecked, isMovieInLibrary, addListLibrary };

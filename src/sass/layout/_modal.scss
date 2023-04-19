@@ -288,11 +288,14 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 20px;
+  gap: 5px;
 
-  @include mq(desk) {
-    justify-content: normal;
-  }
+
+
+
+  // @include mq(desk) {
+  //   justify-content: normal;
+  // }
 }
 
 .modal-btn-wrap {
@@ -359,4 +362,8 @@
   color: #b92f2c;
   background-color: #fff;
   border: 1px solid #b92f2c;
+}
+
+.btn-del{
+  width: 44px;
 }
