@@ -84,7 +84,3 @@ document.querySelector('#library-button').addEventListener('click', () => {
 	// btnMyLibraryRef.dataset.active = !active
 })
 
-// рендер localStorage
-// renderLibrary(document.querySelector('.gallery__item'), getLibrary(), 'watched')
-// document.querySelector('.gallery-js').innerHTML = '';
-// document.querySelector('.gallery__list').innerHTML = ''
