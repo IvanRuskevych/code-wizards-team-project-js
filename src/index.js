@@ -19,3 +19,5 @@ const pagination = document.querySelector('#pagination');
 document.querySelector('#library-button').addEventListener('click', () => {
   pagination.style.display = 'none';
 });
+
+

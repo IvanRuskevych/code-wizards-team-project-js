@@ -274,7 +274,7 @@ function renderTrail({ key }) {
   return `<iframe
   width="375"
     height="478"
-    src="https://www.youtube.com/embed/${key}"
+    src="https://www.youtube.com/embed/${key}?autoplay=1
     title="YouTube video player"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

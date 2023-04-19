@@ -14,7 +14,7 @@ export const getAPITrend = async page => {
   );
   return await data;
 };
-renderTrendCollection(pageState);
+// renderTrendCollection(pageState);
 
 export function resetGallery(parent) {
   parent.innerHTML = '';
